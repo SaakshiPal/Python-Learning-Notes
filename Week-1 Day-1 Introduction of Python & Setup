@@ -1,0 +1,250 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 1 – Day 1 Introduction to Python & Setup 🐍💻
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python is one of the most popular programming languages in the world.
+
+It is widely used in:
+
+✔ Web Development  
+✔ Data Science  
+✔ Artificial Intelligence  
+✔ Automation  
+✔ Cybersecurity  
+✔ Game Development  
+
+---
+
+🔹 What is Python?
+
+```text id="python_def"
+Python is a high-level, interpreted, and easy-to-learn programming language.
+````
+
+---
+
+🎯 Why Learn Python?
+
+✔ Beginner-friendly syntax
+✔ Large community support
+✔ Huge number of libraries
+✔ Used by top companies
+✔ Perfect for AI & Machine Learning
+
+---
+
+🌍 Companies Using Python
+
+| Company   | Usage                   |
+| --------- | ----------------------- |
+| Google    | Search & AI             |
+| Netflix   | Recommendations         |
+| Instagram | Backend Systems         |
+| Spotify   | Data Processing         |
+| OpenAI    | Artificial Intelligence |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚙️ Python Installation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Step 1: Download Python
+
+Visit:
+
+[Python Official Website](https://www.python.org/downloads/?utm_source=chatgpt.com)
+
+---
+
+🔹 Step 2: Install Python
+
+During installation:
+
+✔ Check `Add Python to PATH`
+✔ Click `Install Now`
+
+---
+
+🔹 Step 3: Verify Installation
+
+Open terminal or command prompt:
+
+```bash id="python_version_check"
+python --version
+```
+
+---
+
+💻 Expected Output
+
+```text id="python_output"
+Python 3.x.x
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛠️ Best Code Editors
+
+| Editor                                                                    | Purpose          |
+| ------------------------------------------------------------------------- | ---------------- |
+| [VS Code](https://code.visualstudio.com/?utm_source=chatgpt.com)          | Most popular     |
+| [PyCharm](https://www.jetbrains.com/pycharm/?utm_source=chatgpt.com)      | Professional IDE |
+| [Jupyter Notebook](https://jupyter.org/?utm_source=chatgpt.com)           | Data Science     |
+| [Google Colab](https://colab.research.google.com/?utm_source=chatgpt.com) | Cloud Coding     |
+
+---
+
+🚀 First Python Program
+
+```python id="hello_world"
+print("Hello, World!")
+```
+
+---
+
+▶️ Output
+
+```text id="hello_output"
+Hello, World!
+```
+
+---
+
+🔤 Python Syntax Basics
+
+✔ No semicolons required
+✔ Easy indentation
+✔ Readable code structure
+
+---
+
+💻 Variables Example
+
+```python id="variable_example"
+name = "Saakshi"
+age = 22
+
+print(name)
+print(age)
+```
+
+---
+
+📌 Rules for Variable Names
+
+✔ Can contain letters, numbers, `_`
+✔ Cannot start with a number
+✔ Case-sensitive
+
+---
+
+🔢 Basic Data Types
+
+| Data Type | Example    |
+| --------- | ---------- |
+| Integer   | `10`       |
+| Float     | `3.14`     |
+| String    | `"Python"` |
+| Boolean   | `True`     |
+
+---
+
+💻 Data Type Example
+
+```python id="datatype_example"
+x = 10
+pi = 3.14
+language = "Python"
+is_fun = True
+
+print(type(x))
+print(type(pi))
+print(type(language))
+print(type(is_fun))
+```
+
+---
+
+🔧 Taking User Input
+
+```python id="input_example"
+name = input("Enter your name: ")
+
+print("Welcome", name)
+```
+
+---
+
+➕ Basic Operators
+
+| Operator | Meaning        |
+| -------- | -------------- |
+| `+`      | Addition       |
+| `-`      | Subtraction    |
+| `*`      | Multiplication |
+| `/`      | Division       |
+| `%`      | Modulus        |
+
+---
+
+💻 Operator Example
+
+```python id="operator_example"
+a = 10
+b = 5
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Real-World Applications of Python
+
+✔ AI Chatbots
+✔ Web Apps
+✔ Automation Scripts
+✔ Data Analysis
+✔ Machine Learning
+✔ Cybersecurity Tools
+
+---
+
+🔧 Best Practices
+
+✔ Use meaningful variable names
+✔ Write clean code
+✔ Practice daily
+✔ Learn by building projects
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Beginner Mistakes
+
+❌ Wrong indentation
+❌ Forgetting brackets
+❌ Using wrong variable names
+❌ Confusing `=` and `==`
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python is a high-level, interpreted programming language known for its simplicity and wide range of applications like AI, web development, automation, and data science.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Python is beginner-friendly
+✔ Easy syntax and readability
+✔ Used in AI, web, and automation
+✔ First step toward software development
+
