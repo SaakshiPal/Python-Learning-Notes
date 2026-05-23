@@ -1,0 +1,312 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Input/Output, Variables & Keywords 🐍⌨️📦
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+In Python, programs interact with users using:
+
+✔ Input  
+✔ Output  
+✔ Variables  
+✔ Keywords  
+
+These are the foundation of programming.
+
+---
+
+🔹 What is Input?
+
+```text id="input_def"
+Input is data provided by the user to the program.
+````
+
+---
+
+🔹 What is Output?
+
+```text id="output_def"
+Output is the result displayed by the program.
+```
+
+---
+
+💻 Output Example
+
+```python id="output_example"
+print("Welcome to Python")
+```
+
+---
+
+▶️ Output
+
+```text id="output_result"
+Welcome to Python
+```
+
+---
+
+⌨️ Taking User Input
+
+```python id="input_example2"
+name = input("Enter your name: ")
+
+print("Hello", name)
+```
+
+---
+
+▶️ Example Output
+
+```text id="input_output_example"
+Enter your name: Saakshi
+Hello Saakshi
+```
+
+---
+
+🔢 Input Always Returns String
+
+By default, `input()` returns data as a string.
+
+---
+
+💻 Example
+
+```python id="string_input_example"
+age = input("Enter age: ")
+
+print(type(age))
+```
+
+---
+
+▶️ Output
+
+```text id="string_output"
+<class 'str'>
+```
+
+---
+
+🔄 Type Conversion
+
+We use type casting to convert data types.
+
+---
+
+💻 Integer Input Example
+
+```python id="integer_input_example"
+age = int(input("Enter age: "))
+
+print(age)
+print(type(age))
+```
+
+---
+
+🔹 Common Type Casting Functions
+
+| Function  | Purpose            |
+| --------- | ------------------ |
+| `int()`   | Convert to integer |
+| `float()` | Convert to float   |
+| `str()`   | Convert to string  |
+| `bool()`  | Convert to boolean |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 Variables in Python
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Variable?
+
+```text id="variable_def2"
+A variable is a container used to store data.
+```
+
+---
+
+💻 Variable Example
+
+```python id="variable_example2"
+name = "Python"
+version = 3.13
+
+print(name)
+print(version)
+```
+
+---
+
+📌 Variable Naming Rules
+
+✔ Can contain letters, numbers, `_`
+✔ Cannot start with numbers
+✔ Cannot use spaces
+✔ Case-sensitive
+
+---
+
+✅ Valid Variable Names
+
+```python id="valid_variables"
+student_name = "Rahul"
+age2 = 20
+_total = 500
+```
+
+---
+
+❌ Invalid Variable Names
+
+```python id="invalid_variables"
+2name = "Python"
+user-name = "Alex"
+class = 10
+```
+
+---
+
+🧠 Multiple Variable Assignment
+
+```python id="multiple_variables"
+x, y, z = 10, 20, 30
+
+print(x)
+print(y)
+print(z)
+```
+
+---
+
+🔄 Swapping Variables
+
+```python id="swap_variables"
+a = 5
+b = 10
+
+a, b = b, a
+
+print(a)
+print(b)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔑 Keywords in Python
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What are Keywords?
+
+```text id="keyword_def"
+Keywords are reserved words with special meanings in Python.
+```
+
+---
+
+⚠️ Important Point
+
+Keywords cannot be used as variable names.
+
+---
+
+💻 Example
+
+```python id="keyword_error"
+# Invalid
+
+class = 10
+```
+
+---
+
+📋 Common Python Keywords
+
+| Keyword    | Purpose               |
+| ---------- | --------------------- |
+| `if`       | Condition             |
+| `else`     | Alternative condition |
+| `for`      | Loop                  |
+| `while`    | Repetition            |
+| `break`    | Exit loop             |
+| `continue` | Skip iteration        |
+| `def`      | Function creation     |
+| `return`   | Return value          |
+| `class`    | Create class          |
+| `import`   | Import modules        |
+
+---
+
+💻 Print Python Keywords
+
+```python id="keyword_program"
+import keyword
+
+print(keyword.kwlist)
+```
+
+---
+
+🎯 Real-Life Analogy
+
+| Concept  | Real-Life Example           |
+| -------- | --------------------------- |
+| Variable | Storage box                 |
+| Input    | Asking user for information |
+| Output   | Showing result on screen    |
+| Keyword  | Reserved command            |
+
+---
+
+🚀 Mini Practice Program
+
+```python id="mini_program"
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+print("Name:", name)
+print("Age:", age)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use meaningful variable names
+✔ Avoid single-letter variables
+✔ Follow naming conventions
+✔ Do not use keywords as variables
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting type casting
+❌ Invalid variable names
+❌ Using keywords as variables
+❌ Wrong indentation
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Variables store data in Python, input is used to take user data, output displays results, and keywords are reserved words with predefined meanings.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ `input()` takes user input
+✔ `print()` displays output
+✔ Variables store values
+✔ Keywords are reserved words
+✔ Type casting changes data types
+
+
