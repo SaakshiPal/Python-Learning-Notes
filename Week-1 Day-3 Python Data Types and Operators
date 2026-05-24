@@ -1,0 +1,392 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 1 – Day 3 Python Data Types & Operators 🐍🔢⚡
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Data types define the type of value stored in a variable.
+
+Operators are symbols used to perform operations on values and variables.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 1. Python Data Types
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Data Type?
+
+```text id="datatype_def"
+A data type specifies the kind of value a variable can store.
+````
+
+---
+
+🎯 Why Data Types Matter
+
+✔ Efficient memory usage
+✔ Better program execution
+✔ Helps avoid errors
+✔ Important for calculations
+
+---
+
+🔢 Main Python Data Types
+
+| Data Type | Description             | Example          |
+| --------- | ----------------------- | ---------------- |
+| `int`     | Integer numbers         | `10`             |
+| `float`   | Decimal numbers         | `3.14`           |
+| `str`     | Text/String             | `"Python"`       |
+| `bool`    | True/False values       | `True`           |
+| `list`    | Ordered collection      | `[1, 2, 3]`      |
+| `tuple`   | Immutable collection    | `(1, 2)`         |
+| `set`     | Unordered unique values | `{1, 2, 3}`      |
+| `dict`    | Key-value pairs         | `{"name":"Sam"}` |
+
+---
+
+💻 Integer Example
+
+```python id="int_example"
+age = 21
+
+print(age)
+print(type(age))
+```
+
+---
+
+💻 Float Example
+
+```python id="float_example"
+pi = 3.14159
+
+print(pi)
+print(type(pi))
+```
+
+---
+
+💻 String Example
+
+```python id="string_example"
+language = "Python"
+
+print(language)
+print(type(language))
+```
+
+---
+
+💻 Boolean Example
+
+```python id="boolean_example"
+is_python_fun = True
+
+print(is_python_fun)
+print(type(is_python_fun))
+```
+
+---
+
+📋 List Data Type
+
+Lists store multiple values.
+
+```python id="list_example"
+numbers = [10, 20, 30, 40]
+
+print(numbers)
+print(type(numbers))
+```
+
+---
+
+📦 Tuple Data Type
+
+Tuples are immutable.
+
+```python id="tuple_example"
+coordinates = (10, 20)
+
+print(coordinates)
+print(type(coordinates))
+```
+
+---
+
+🔄 Set Data Type
+
+Sets store unique values.
+
+```python id="set_example"
+unique_numbers = {1, 2, 3, 3, 4}
+
+print(unique_numbers)
+```
+
+---
+
+🗂️ Dictionary Data Type
+
+Dictionaries store data in key-value form.
+
+```python id="dict_example"
+student = {
+    "name": "Saakshi",
+    "age": 22
+}
+
+print(student)
+print(type(student))
+```
+
+---
+
+🔄 Type Conversion
+
+Type conversion changes one data type into another.
+
+---
+
+💻 Example
+
+```python id="type_conversion_example"
+num = "100"
+
+converted_num = int(num)
+
+print(converted_num)
+print(type(converted_num))
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡ 2. Python Operators
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is an Operator?
+
+```text id="operator_def"
+An operator is a symbol used to perform operations on values or variables.
+```
+
+---
+
+➕ Arithmetic Operators
+
+| Operator | Meaning        | Example  |
+| -------- | -------------- | -------- |
+| `+`      | Addition       | `5 + 2`  |
+| `-`      | Subtraction    | `5 - 2`  |
+| `*`      | Multiplication | `5 * 2`  |
+| `/`      | Division       | `5 / 2`  |
+| `%`      | Modulus        | `5 % 2`  |
+| `//`     | Floor Division | `5 // 2` |
+| `**`     | Power          | `5 ** 2` |
+
+---
+
+💻 Arithmetic Example
+
+```python id="arithmetic_example"
+a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+print(a // b)
+print(a ** b)
+```
+
+---
+
+⚖️ Comparison Operators
+
+| Operator | Meaning               |
+| -------- | --------------------- |
+| `==`     | Equal to              |
+| `!=`     | Not equal to          |
+| `>`      | Greater than          |
+| `<`      | Less than             |
+| `>=`     | Greater than or equal |
+| `<=`     | Less than or equal    |
+
+---
+
+💻 Comparison Example
+
+```python id="comparison_example"
+x = 10
+y = 20
+
+print(x == y)
+print(x != y)
+print(x < y)
+print(x > y)
+```
+
+---
+
+🔗 Logical Operators
+
+| Operator | Meaning              |
+| -------- | -------------------- |
+| `and`    | Both conditions true |
+| `or`     | At least one true    |
+| `not`    | Reverse condition    |
+
+---
+
+💻 Logical Operator Example
+
+```python id="logical_example"
+a = True
+b = False
+
+print(a and b)
+print(a or b)
+print(not a)
+```
+
+---
+
+📝 Assignment Operators
+
+| Operator | Example  |
+| -------- | -------- |
+| `=`      | `x = 5`  |
+| `+=`     | `x += 2` |
+| `-=`     | `x -= 2` |
+| `*=`     | `x *= 2` |
+| `/=`     | `x /= 2` |
+
+---
+
+💻 Assignment Example
+
+```python id="assignment_example"
+x = 10
+
+x += 5
+
+print(x)
+```
+
+---
+
+🧠 Membership Operators
+
+| Operator | Meaning             |
+| -------- | ------------------- |
+| `in`     | Present in sequence |
+| `not in` | Not present         |
+
+---
+
+💻 Membership Example
+
+```python id="membership_example"
+languages = ["Python", "Java", "C++"]
+
+print("Python" in languages)
+print("Go" not in languages)
+```
+
+---
+
+🆔 Identity Operators
+
+| Operator | Meaning          |
+| -------- | ---------------- |
+| `is`     | Same object      |
+| `is not` | Different object |
+
+---
+
+💻 Identity Example
+
+```python id="identity_example"
+x = [1, 2]
+y = x
+
+print(x is y)
+```
+
+---
+
+🎯 Operator Precedence
+
+Python follows operator priority rules.
+
+Example:
+
+```python id="precedence_example"
+result = 10 + 5 * 2
+
+print(result)
+```
+
+---
+
+▶️ Output
+
+```text id="precedence_output"
+20
+```
+
+Because multiplication happens first.
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_program"
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+print("Addition:", num1 + num2)
+print("Multiplication:", num1 * num2)
+print("Greater:", num1 > num2)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use meaningful variable names
+✔ Use proper data types
+✔ Avoid unnecessary type conversion
+✔ Understand operator precedence
+
+---
+
+⚠️ Common Mistakes
+
+❌ Using `=` instead of `==`
+❌ Wrong data type conversion
+❌ Dividing integers incorrectly
+❌ Confusing `is` and `==`
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python data types define the kind of data stored in variables, while operators perform operations like arithmetic, comparison, and logical evaluation.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Python supports multiple data types
+✔ Operators perform calculations and comparisons
+✔ Type conversion changes data types
+✔ Operator precedence affects execution order
+
