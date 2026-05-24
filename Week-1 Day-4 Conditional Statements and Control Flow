@@ -1,0 +1,316 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 1 – Day 4 Conditional Statements & Control Flow 🐍🔀⚡
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Conditional statements help programs make decisions based on conditions.
+
+Control flow determines how the program executes step by step.
+
+---
+
+🔹 What is a Conditional Statement?
+
+```text id="conditional_def"
+A conditional statement executes different blocks of code based on whether a condition is True or False.
+````
+
+---
+
+🎯 Why Conditional Statements Matter
+
+✔ Decision making
+✔ Dynamic programs
+✔ User-based responses
+✔ Core programming logic
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔀 What is Control Flow?
+
+```text id="control_flow_def"
+Control flow is the order in which program instructions are executed.
+```
+
+---
+
+📌 Types of Conditional Statements
+
+| Statement      | Purpose                            |
+| -------------- | ---------------------------------- |
+| `if`           | Execute block if condition is true |
+| `if-else`      | Choose between two blocks          |
+| `if-elif-else` | Multiple conditions                |
+| Nested `if`    | Conditions inside conditions       |
+
+---
+
+🔹 1. if Statement
+
+Executes code only if condition is true.
+
+---
+
+💻 Example
+
+```python id="if_example"
+age = 18
+
+if age >= 18:
+    print("Eligible to vote")
+```
+
+---
+
+▶️ Output
+
+```text id="if_output"
+Eligible to vote
+```
+
+---
+
+🔹 2. if-else Statement
+
+Used when there are two possible outcomes.
+
+---
+
+💻 Example
+
+```python id="if_else_example"
+number = 5
+
+if number % 2 == 0:
+    print("Even Number")
+else:
+    print("Odd Number")
+```
+
+---
+
+▶️ Output
+
+```text id="if_else_output"
+Odd Number
+```
+
+---
+
+🔹 3. if-elif-else Statement
+
+Used for multiple conditions.
+
+---
+
+💻 Example
+
+```python id="elif_example"
+marks = 75
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 75:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")
+```
+
+---
+
+▶️ Output
+
+```text id="elif_output"
+Grade B
+```
+
+---
+
+🔹 4. Nested if Statement
+
+An `if` statement inside another `if`.
+
+---
+
+💻 Example
+
+```python id="nested_if_example"
+age = 20
+has_id = True
+
+if age >= 18:
+    if has_id:
+        print("Entry Allowed")
+```
+
+---
+
+▶️ Output
+
+```text id="nested_if_output"
+Entry Allowed
+```
+
+---
+
+⚖️ Comparison Operators in Conditions
+
+| Operator | Meaning               |
+| -------- | --------------------- |
+| `==`     | Equal to              |
+| `!=`     | Not equal             |
+| `>`      | Greater than          |
+| `<`      | Less than             |
+| `>=`     | Greater than or equal |
+| `<=`     | Less than or equal    |
+
+---
+
+🔗 Logical Operators
+
+| Operator | Meaning              |
+| -------- | -------------------- |
+| `and`    | Both conditions true |
+| `or`     | At least one true    |
+| `not`    | Reverse condition    |
+
+---
+
+💻 Logical Operator Example
+
+```python id="logical_condition_example"
+age = 25
+citizen = True
+
+if age >= 18 and citizen:
+    print("Eligible")
+```
+
+---
+
+▶️ Output
+
+```text id="logical_output"
+Eligible
+```
+
+---
+
+🧠 Truthy & Falsy Values
+
+Python treats some values as `False`.
+
+---
+
+❌ Falsy Values
+
+| Value   |
+| ------- |
+| `0`     |
+| `False` |
+| `None`  |
+| `""`    |
+| `[]`    |
+
+---
+
+💻 Example
+
+```python id="truthy_example"
+name = ""
+
+if name:
+    print("Name exists")
+else:
+    print("Empty String")
+```
+
+---
+
+▶️ Output
+
+```text id="truthy_output"
+Empty String
+```
+
+---
+
+🔄 Short-Hand if Statement
+
+Python supports single-line conditions.
+
+---
+
+💻 Example
+
+```python id="short_if_example"
+age = 20
+
+print("Adult") if age >= 18 else print("Minor")
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-Life Examples
+
+| Situation       | Condition            |
+| --------------- | -------------------- |
+| Login System    | Correct password     |
+| ATM Machine     | Sufficient balance   |
+| Online Shopping | Discount eligibility |
+| Game            | Win or lose          |
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_conditional"
+temperature = int(input("Enter temperature: "))
+
+if temperature > 35:
+    print("Very Hot")
+elif temperature > 20:
+    print("Pleasant Weather")
+else:
+    print("Cold Weather")
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use proper indentation
+✔ Keep conditions simple
+✔ Avoid deep nesting
+✔ Use meaningful variable names
+
+---
+
+⚠️ Common Mistakes
+
+❌ Using `=` instead of `==`
+❌ Wrong indentation
+❌ Forgetting colon `:`
+❌ Overcomplicated conditions
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Conditional statements in Python are used for decision-making. They execute different blocks of code based on conditions using `if`, `else`, and `elif`.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ `if` checks conditions
+✔ `else` handles alternative cases
+✔ `elif` manages multiple conditions
+✔ Control flow decides execution order
+✔ Logical operators combine conditions
+
