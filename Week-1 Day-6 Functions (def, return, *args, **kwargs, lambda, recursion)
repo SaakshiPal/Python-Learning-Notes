@@ -1,0 +1,403 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 1 – Day 6 Functions in Python (def, return, *args, **kwargs, lambda, recursion) 🐍⚡
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Functions are reusable blocks of code that perform specific tasks.
+
+They help make programs:
+
+✔ Organized  
+✔ Reusable  
+✔ Easy to debug  
+✔ Modular  
+
+---
+
+🔹 What is a Function?
+
+```text id="function_def"
+A function is a block of reusable code that performs a specific task.
+````
+
+---
+
+🎯 Why Functions are Important
+
+✔ Reduce code repetition
+✔ Improve readability
+✔ Simplify debugging
+✔ Enable modular programming
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Creating a Function
+
+Functions are created using the `def` keyword.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Syntax
+
+```python id="function_syntax"
+def function_name():
+    # code
+```
+
+---
+
+💻 Example
+
+```python id="simple_function"
+def greet():
+    print("Welcome to Python")
+
+greet()
+```
+
+---
+
+▶️ Output
+
+```text id="simple_function_output"
+Welcome to Python
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Function Parameters
+
+Parameters allow functions to receive input values.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="parameter_example"
+def greet(name):
+    print("Hello", name)
+
+greet("Saakshi")
+```
+
+---
+
+▶️ Output
+
+```text id="parameter_output"
+Hello Saakshi
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 return Statement
+
+`return` sends a value back from the function.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="return_example"
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+```
+
+---
+
+▶️ Output
+
+```text id="return_output"
+30
+```
+
+---
+
+📌 Difference Between print() and return
+
+| `print()`          | `return`            |
+| ------------------ | ------------------- |
+| Displays output    | Sends value back    |
+| Cannot reuse value | Value can be reused |
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 Default Parameters
+
+Functions can have default values.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="default_parameter"
+def greet(name="Guest"):
+    print("Hello", name)
+
+greet()
+greet("Python")
+```
+
+---
+
+▶️ Output
+
+```text id="default_output"
+Hello Guest
+Hello Python
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⭐ *args in Python
+
+`*args` allows multiple positional arguments.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="args_example"
+def total(*numbers):
+    print(numbers)
+
+total(1, 2, 3, 4)
+```
+
+---
+
+▶️ Output
+
+```text id="args_output"
+(1, 2, 3, 4)
+```
+
+---
+
+💻 Sum Using *args
+
+```python id="args_sum"
+def add(*numbers):
+    total = 0
+
+    for num in numbers:
+        total += num
+
+    return total
+
+print(add(1, 2, 3, 4))
+```
+
+---
+
+▶️ Output
+
+```text id="args_sum_output"
+10
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔑 **kwargs in Python
+
+`**kwargs` allows multiple keyword arguments.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="kwargs_example"
+def student_info(**details):
+    print(details)
+
+student_info(name="Saakshi", age=22)
+```
+
+---
+
+▶️ Output
+
+```text id="kwargs_output"
+{'name': 'Saakshi', 'age': 22}
+```
+
+---
+
+⚡ Lambda Functions
+
+Lambda functions are anonymous one-line functions.
+
+---
+
+🔹 Syntax
+
+```python id="lambda_syntax"
+lambda arguments : expression
+```
+
+---
+
+💻 Example
+
+```python id="lambda_example"
+square = lambda x: x * x
+
+print(square(5))
+```
+
+---
+
+▶️ Output
+
+```text id="lambda_output"
+25
+```
+
+---
+
+💻 Lambda with Multiple Arguments
+
+```python id="lambda_multiple"
+add = lambda a, b: a + b
+
+print(add(10, 20))
+```
+
+---
+
+▶️ Output
+
+```text id="lambda_multiple_output"
+30
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔁 Recursion in Python
+
+A function calling itself is called recursion.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Recursion?
+
+```text id="recursion_def"
+Recursion is a process where a function calls itself repeatedly until a stopping condition is met.
+```
+
+---
+
+💻 Example: Factorial
+
+```python id="recursion_example"
+def factorial(n):
+    if n == 1:
+        return 1
+
+    return n * factorial(n - 1)
+
+print(factorial(5))
+```
+
+---
+
+▶️ Output
+
+```text id="recursion_output"
+120
+```
+
+---
+
+🔄 Recursion Flow
+
+```text id="recursion_flow"
+factorial(5)
+→ 5 * factorial(4)
+→ 4 * factorial(3)
+→ 3 * factorial(2)
+→ 2 * factorial(1)
+→ 1
+```
+
+---
+
+⚠️ Base Case in Recursion
+
+Without a base case, recursion becomes infinite.
+
+---
+
+❌ Example
+
+```python id="bad_recursion"
+def test():
+    return test()
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ AI algorithms
+✔ File system traversal
+✔ Data processing
+✔ Automation scripts
+✔ Mathematical calculations
+
+---
+
+🔧 Best Practices
+
+✔ Use meaningful function names
+✔ Keep functions small
+✔ Avoid unnecessary recursion
+✔ Use return values properly
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ Common Mistakes
+
+❌ Forgetting return statement
+❌ Infinite recursion
+❌ Wrong parameter usage
+❌ Confusing *args and **kwargs
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_function"
+def even_or_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+print(even_or_odd(10))
+```
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Functions in Python are reusable blocks of code created using `def`. Python also supports lambda functions, recursion, `*args` for multiple positional arguments, and `**kwargs` for keyword arguments.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Functions improve code reusability
+✔ `return` sends values back
+✔ `*args` handles multiple positional arguments
+✔ `**kwargs` handles keyword arguments
+✔ Lambda functions are one-line anonymous functions
+✔ Recursion allows functions to call themselves
+
