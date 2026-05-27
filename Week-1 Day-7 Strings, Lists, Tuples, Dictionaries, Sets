@@ -1,0 +1,447 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 1 – Day 7 Strings, Lists, Tuples, Dictionaries & Sets 🐍📦🔤
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python provides powerful built-in data structures to store and manage data efficiently.
+
+These include:
+
+✔ Strings  
+✔ Lists  
+✔ Tuples  
+✔ Dictionaries  
+✔ Sets  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔤 1. Strings in Python
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a String?
+
+```text id="string_def2"
+A string is a sequence of characters enclosed in quotes.
+````
+
+---
+
+💻 String Example
+
+```python id="string_example2"
+name = "Python"
+
+print(name)
+print(type(name))
+```
+
+---
+
+▶️ Output
+
+```text id="string_output2"
+Python
+<class 'str'>
+```
+
+---
+
+🔤 String Indexing
+
+Each character has an index position.
+
+---
+
+💻 Example
+
+```python id="string_indexing"
+word = "Python"
+
+print(word[0])
+print(word[1])
+```
+
+---
+
+▶️ Output
+
+```text id="string_index_output"
+P
+y
+```
+
+---
+
+🔄 String Slicing
+
+Used to extract parts of a string.
+
+---
+
+💻 Example
+
+```python id="string_slicing"
+text = "Programming"
+
+print(text[0:6])
+print(text[3:])
+```
+
+---
+
+▶️ Output
+
+```text id="string_slice_output"
+Progra
+gramming
+```
+
+---
+
+🔧 Common String Methods
+
+| Method      | Purpose              |
+| ----------- | -------------------- |
+| `upper()`   | Convert to uppercase |
+| `lower()`   | Convert to lowercase |
+| `strip()`   | Remove spaces        |
+| `replace()` | Replace text         |
+| `split()`   | Split string         |
+
+---
+
+💻 Example
+
+```python id="string_methods"
+message = " hello python "
+
+print(message.upper())
+print(message.strip())
+print(message.replace("python", "world"))
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 2. Lists in Python
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a List?
+
+```text id="list_def"
+A list is an ordered and mutable collection of items.
+```
+
+---
+
+💻 List Example
+
+```python id="list_example2"
+numbers = [10, 20, 30, 40]
+
+print(numbers)
+print(type(numbers))
+```
+
+---
+
+🔄 Access List Elements
+
+```python id="list_access"
+fruits = ["Apple", "Mango", "Banana"]
+
+print(fruits[0])
+print(fruits[-1])
+```
+
+---
+
+➕ Add Elements to List
+
+```python id="list_append"
+fruits = ["Apple", "Mango"]
+
+fruits.append("Orange")
+
+print(fruits)
+```
+
+---
+
+❌ Remove Elements
+
+```python id="list_remove"
+numbers = [1, 2, 3, 4]
+
+numbers.remove(2)
+
+print(numbers)
+```
+
+---
+
+🔧 Common List Methods
+
+| Method      | Purpose         |
+| ----------- | --------------- |
+| `append()`  | Add item        |
+| `remove()`  | Remove item     |
+| `pop()`     | Remove by index |
+| `sort()`    | Sort list       |
+| `reverse()` | Reverse list    |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 3. Tuples in Python
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Tuple?
+
+```text id="tuple_def2"
+A tuple is an ordered and immutable collection of items.
+```
+
+---
+
+💻 Tuple Example
+
+```python id="tuple_example2"
+coordinates = (10, 20)
+
+print(coordinates)
+print(type(coordinates))
+```
+
+---
+
+⚠️ Tuple Immutability
+
+Tuples cannot be modified after creation.
+
+---
+
+❌ Example
+
+```python id="tuple_error"
+data = (1, 2, 3)
+
+data[0] = 10
+```
+
+---
+
+📌 Tuple Advantages
+
+✔ Faster than lists
+✔ Immutable
+✔ Safer for fixed data
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🗂️ 4. Dictionaries in Python
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Dictionary?
+
+```text id="dict_def"
+A dictionary stores data in key-value pairs.
+```
+
+---
+
+💻 Dictionary Example
+
+```python id="dict_example2"
+student = {
+    "name": "Saakshi",
+    "age": 22,
+    "course": "Python"
+}
+
+print(student)
+```
+
+---
+
+🔍 Access Dictionary Values
+
+```python id="dict_access"
+student = {
+    "name": "Alex",
+    "age": 21
+}
+
+print(student["name"])
+```
+
+---
+
+➕ Add New Key-Value Pair
+
+```python id="dict_add"
+student = {
+    "name": "Sam"
+}
+
+student["age"] = 20
+
+print(student)
+```
+
+---
+
+🔧 Common Dictionary Methods
+
+| Method     | Purpose             |
+| ---------- | ------------------- |
+| `keys()`   | Get all keys        |
+| `values()` | Get all values      |
+| `items()`  | Get key-value pairs |
+| `get()`    | Access value safely |
+| `pop()`    | Remove item         |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 5. Sets in Python
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Set?
+
+```text id="set_def"
+A set is an unordered collection of unique items.
+```
+
+---
+
+💻 Set Example
+
+```python id="set_example2"
+numbers = {1, 2, 3, 3, 4}
+
+print(numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="set_output"
+{1, 2, 3, 4}
+```
+
+---
+
+➕ Add Elements to Set
+
+```python id="set_add"
+languages = {"Python", "Java"}
+
+languages.add("C++")
+
+print(languages)
+```
+
+---
+
+❌ Remove Elements from Set
+
+```python id="set_remove"
+numbers = {1, 2, 3}
+
+numbers.remove(2)
+
+print(numbers)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Common Set Methods
+
+| Method           | Purpose          |
+| ---------------- | ---------------- |
+| `add()`          | Add element      |
+| `remove()`       | Remove element   |
+| `clear()`        | Remove all items |
+| `union()`        | Combine sets     |
+| `intersection()` | Common elements  |
+
+---
+
+⚖️ Difference Between Collections
+
+| Collection | Ordered | Mutable | Unique Values |
+| ---------- | ------- | ------- | ------------- |
+| List       | ✔       | ✔       | ❌             |
+| Tuple      | ✔       | ❌       | ❌             |
+| Set        | ❌       | ✔       | ✔             |
+| Dictionary | ✔       | ✔       | Keys unique   |
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_collection"
+students = ["Alex", "Sam", "John"]
+
+students.append("Emma")
+
+print(students)
+
+info = {
+    "name": "Alex",
+    "age": 20
+}
+
+print(info["name"])
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Student management systems
+✔ E-commerce carts
+✔ Data analysis
+✔ AI datasets
+✔ Configuration settings
+
+---
+
+🔧 Best Practices
+
+✔ Use lists for dynamic data
+✔ Use tuples for fixed data
+✔ Use sets for unique items
+✔ Use dictionaries for structured data
+
+---
+
+⚠️ Common Mistakes
+
+❌ Modifying tuples
+❌ Using duplicate keys in dictionaries
+❌ Forgetting set uniqueness
+❌ Indexing sets directly
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python collections include strings, lists, tuples, dictionaries, and sets. Lists are mutable, tuples are immutable, dictionaries store key-value pairs, and sets store unique values.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Strings store text data
+✔ Lists are mutable collections
+✔ Tuples are immutable collections
+✔ Dictionaries use key-value pairs
+✔ Sets store unique values
