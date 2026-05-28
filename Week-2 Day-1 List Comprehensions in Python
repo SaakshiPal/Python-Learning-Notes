@@ -1,0 +1,359 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 1 List Comprehensions in Python 🐍⚡📋
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+List comprehensions provide a short and powerful way to create lists in Python.
+
+They make code:
+
+✔ Cleaner  
+✔ Faster  
+✔ More readable  
+
+---
+
+🔹 What is List Comprehension?
+
+```text id="list_comp_def"
+List comprehension is a concise way to create lists using a single line of code.
+````
+
+---
+
+🎯 Why Use List Comprehensions?
+
+✔ Reduce code length
+✔ Improve readability
+✔ Faster execution
+✔ Easy filtering and transformations
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Traditional Way vs List Comprehension
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Traditional Method
+
+```python id="traditional_list"
+numbers = []
+
+for i in range(5):
+    numbers.append(i)
+
+print(numbers)
+```
+
+---
+
+💻 Using List Comprehension
+
+```python id="list_comp_basic"
+numbers = [i for i in range(5)]
+
+print(numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="list_comp_output"
+[0, 1, 2, 3, 4]
+```
+
+---
+
+🔹 Syntax of List Comprehension
+
+```python id="list_comp_syntax"
+[expression for item in iterable]
+```
+
+---
+
+📌 Components
+
+| Component    | Meaning                |
+| ------------ | ---------------------- |
+| `expression` | Output value           |
+| `item`       | Variable               |
+| `iterable`   | Sequence or collection |
+
+---
+
+💻 Example: Square Numbers
+
+```python id="square_example"
+squares = [x * x for x in range(1, 6)]
+
+print(squares)
+```
+
+---
+
+▶️ Output
+
+```text id="square_output"
+[1, 4, 9, 16, 25]
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Conditional List Comprehension
+
+You can add conditions inside comprehensions.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example: Even Numbers
+
+```python id="even_example"
+even_numbers = [x for x in range(10) if x % 2 == 0]
+
+print(even_numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="even_output"
+[0, 2, 4, 6, 8]
+```
+
+---
+
+💻 Example: Odd Numbers
+
+```python id="odd_example"
+odd_numbers = [x for x in range(10) if x % 2 != 0]
+
+print(odd_numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="odd_output"
+[1, 3, 5, 7, 9]
+```
+
+---
+
+🔄 if-else in List Comprehension
+
+---
+
+💻 Example
+
+```python id="if_else_comp"
+result = ["Even" if x % 2 == 0 else "Odd" for x in range(5)]
+
+print(result)
+```
+
+---
+
+▶️ Output
+
+```text id="if_else_output2"
+['Even', 'Odd', 'Even', 'Odd', 'Even']
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔤 List Comprehension with Strings
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="string_comp"
+letters = [char.upper() for char in "python"]
+
+print(letters)
+```
+
+---
+
+▶️ Output
+
+```text id="string_comp_output"
+['P', 'Y', 'T', 'H', 'O', 'N']
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📋 Nested List Comprehension
+
+A list comprehension inside another comprehension.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="nested_comp"
+matrix = [[j for j in range(3)] for i in range(3)]
+
+print(matrix)
+```
+
+---
+
+▶️ Output
+
+```text id="nested_output2"
+[[0, 1, 2], [0, 1, 2], [0, 1, 2]]
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 Flatten Nested Lists
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="flatten_example"
+matrix = [[1, 2], [3, 4], [5, 6]]
+
+flat = [num for row in matrix for num in row]
+
+print(flat)
+```
+
+---
+
+▶️ Output
+
+```text id="flatten_output"
+[1, 2, 3, 4, 5, 6]
+```
+
+---
+
+🧠 Dictionary Comprehension
+
+Python also supports dictionary comprehensions.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="dict_comp"
+squares = {x: x * x for x in range(5)}
+
+print(squares)
+```
+
+---
+
+▶️ Output
+
+```text id="dict_output2"
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+---
+
+🔄 Set Comprehension
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="set_comp"
+numbers = {x for x in range(5)}
+
+print(numbers)
+```
+
+---
+
+⚡ Generator Expression
+
+Uses parentheses instead of square brackets.
+
+---
+
+💻 Example
+
+```python id="generator_example"
+nums = (x * x for x in range(5))
+
+print(nums)
+```
+
+---
+
+📌 Difference Between List & Generator
+
+| List Comprehension | Generator               |
+| ------------------ | ----------------------- |
+| Uses `[]`          | Uses `()`               |
+| Stores all values  | Generates values lazily |
+| More memory        | Memory efficient        |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Data filtering
+✔ Data transformation
+✔ Machine learning preprocessing
+✔ Automation scripts
+✔ Fast list generation
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_comp"
+numbers = [1, 2, 3, 4, 5]
+
+squares = [x ** 2 for x in numbers]
+
+print(squares)
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Keep comprehensions simple
+✔ Avoid deeply nested comprehensions
+✔ Use meaningful variable names
+✔ Prefer readability over shortness
+
+---
+
+⚠️ Common Mistakes
+
+❌ Overcomplicated comprehensions
+❌ Wrong condition placement
+❌ Confusing nested loops
+❌ Using comprehensions where loops are clearer
+
+---
+
+🧠 Interview Answer (Simple)
+
+> List comprehensions provide a concise and efficient way to create lists in Python using a single line of code with optional conditions.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ List comprehensions simplify list creation
+✔ Conditions can filter values
+✔ Nested comprehensions support complex structures
+✔ Dictionary and set comprehensions are also supported
+✔ Generators are memory efficient
+
+
