@@ -1,0 +1,451 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 2 Python Collections Module (Counter, OrderedDict, defaultdict, deque) 🐍📦⚡
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+The `collections` module provides specialized container data types that extend the functionality of Python's built-in data structures.
+
+It helps write:
+
+✔ Cleaner code  
+✔ Faster programs  
+✔ More efficient data handling  
+
+---
+
+🔹 What is Collections Module?
+
+```text id="collections_def"
+The collections module provides high-performance alternatives to Python's built-in data structures.
+````
+
+---
+
+📥 Import Collections Module
+
+```python id="collections_import"
+from collections import Counter, OrderedDict, defaultdict, deque
+```
+
+---
+
+📌 Important Collection Classes
+
+| Class         | Purpose                         |
+| ------------- | ------------------------------- |
+| `Counter`     | Count occurrences of items      |
+| `OrderedDict` | Dictionary with insertion order |
+| `defaultdict` | Dictionary with default values  |
+| `deque`       | Fast append and pop operations  |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔢 1. Counter
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Counter?
+
+```text id="counter_def"
+Counter is a dictionary subclass used to count the frequency of elements.
+```
+
+---
+
+💻 Example
+
+```python id="counter_example"
+from collections import Counter
+
+numbers = [1, 2, 2, 3, 3, 3]
+
+count = Counter(numbers)
+
+print(count)
+```
+
+---
+
+▶️ Output
+
+```text id="counter_output"
+Counter({3: 3, 2: 2, 1: 1})
+```
+
+---
+
+🔍 Count Characters
+
+```python id="counter_string"
+from collections import Counter
+
+text = "python"
+
+print(Counter(text))
+```
+
+---
+
+▶️ Output
+
+```text id="counter_string_output"
+Counter({'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1})
+```
+
+---
+
+⭐ Most Common Elements
+
+```python id="counter_common"
+from collections import Counter
+
+data = [1, 1, 2, 2, 2, 3]
+
+count = Counter(data)
+
+print(count.most_common(2))
+```
+
+---
+
+▶️ Output
+
+```text id="counter_common_output"
+[(2, 3), (1, 2)]
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 2. OrderedDict
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is OrderedDict?
+
+```text id="ordereddict_def"
+OrderedDict remembers the order in which items were inserted.
+```
+
+---
+
+💻 Example
+
+```python id="ordereddict_example"
+from collections import OrderedDict
+
+data = OrderedDict()
+
+data["A"] = 1
+data["B"] = 2
+data["C"] = 3
+
+print(data)
+```
+
+---
+
+▶️ Output
+
+```text id="ordereddict_output"
+OrderedDict([('A', 1), ('B', 2), ('C', 3)])
+```
+
+---
+
+📌 Note
+
+From Python 3.7+, normal dictionaries also preserve insertion order.
+
+However, `OrderedDict` provides extra ordering methods.
+
+---
+
+💻 Move Element to End
+
+```python id="ordereddict_move"
+from collections import OrderedDict
+
+data = OrderedDict([
+    ("A", 1),
+    ("B", 2),
+    ("C", 3)
+])
+
+data.move_to_end("A")
+
+print(data)
+```
+
+---
+
+▶️ Output
+
+```text id="ordereddict_move_output"
+OrderedDict([('B', 2), ('C', 3), ('A', 1)])
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🗂️ 3. defaultdict
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is defaultdict?
+
+```text id="defaultdict_def"
+defaultdict automatically creates a default value for missing keys.
+```
+
+---
+
+❌ Normal Dictionary Example
+
+```python id="normal_dict_error"
+data = {}
+
+print(data["name"])
+```
+
+---
+
+▶️ Output
+
+```text id="key_error_output"
+KeyError
+```
+
+---
+
+✅ defaultdict Example
+
+```python id="defaultdict_example"
+from collections import defaultdict
+
+data = defaultdict(str)
+
+print(data["name"])
+```
+
+---
+
+▶️ Output
+
+```text id="defaultdict_output"
+```
+
+(Empty String)
+
+---
+
+💻 Integer Default Value
+
+```python id="defaultdict_int"
+from collections import defaultdict
+
+count = defaultdict(int)
+
+count["apple"] += 1
+
+print(count)
+```
+
+---
+
+▶️ Output
+
+```text id="defaultdict_int_output"
+defaultdict(<class 'int'>, {'apple': 1})
+```
+
+---
+
+💻 Grouping Example
+
+```python id="grouping_example"
+from collections import defaultdict
+
+students = [
+    ("Python", "Alex"),
+    ("Java", "John"),
+    ("Python", "Emma")
+]
+
+groups = defaultdict(list)
+
+for course, student in students:
+    groups[course].append(student)
+
+print(groups)
+```
+
+---
+
+▶️ Output
+
+```text id="grouping_output"
+{
+ 'Python': ['Alex', 'Emma'],
+ 'Java': ['John']
+}
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 4. deque
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is deque?
+
+```text id="deque_def"
+deque (double-ended queue) allows fast insertion and deletion from both ends.
+```
+
+---
+
+💻 Example
+
+```python id="deque_example"
+from collections import deque
+
+dq = deque([1, 2, 3])
+
+print(dq)
+```
+
+---
+
+▶️ Output
+
+```text id="deque_output"
+deque([1, 2, 3])
+```
+
+---
+
+➕ Add Elements
+
+```python id="deque_append"
+from collections import deque
+
+dq = deque([1, 2])
+
+dq.append(3)
+dq.appendleft(0)
+
+print(dq)
+```
+
+---
+
+▶️ Output
+
+```text id="deque_append_output"
+deque([0, 1, 2, 3])
+```
+
+---
+
+❌ Remove Elements
+
+```python id="deque_pop"
+from collections import deque
+
+dq = deque([1, 2, 3])
+
+dq.pop()
+dq.popleft()
+
+print(dq)
+```
+
+---
+
+▶️ Output
+
+```text id="deque_pop_output"
+deque([2])
+```
+
+---
+
+🎯 Why deque is Faster
+
+For large datasets:
+
+✔ Fast insertion at beginning
+✔ Fast deletion at beginning
+✔ Better than lists for queue operations
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Comparison
+
+| Feature      | List | deque |
+| ------------ | ---- | ----- |
+| Append Right | Fast | Fast  |
+| Pop Right    | Fast | Fast  |
+| Append Left  | Slow | Fast  |
+| Pop Left     | Slow | Fast  |
+
+---
+
+🚀 Real-World Applications
+
+✔ Queue systems
+✔ Task scheduling
+✔ Log processing
+✔ Data streaming
+✔ Frequency counting
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use `Counter` for frequency analysis
+✔ Use `defaultdict` for grouping data
+✔ Use `deque` for queues and stacks
+✔ Use `OrderedDict` when advanced ordering is needed
+
+---
+
+⚠️ Common Mistakes
+
+❌ Using normal dictionaries when defaultdict is better
+❌ Using lists as queues instead of deque
+❌ Forgetting Counter methods
+❌ Overusing OrderedDict in modern Python versions
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Mini Practice Program
+
+```python id="practice_collections"
+from collections import Counter
+
+text = "programming"
+
+count = Counter(text)
+
+print(count.most_common(3))
+```
+
+---
+
+🧠 Interview Answer (Simple)
+
+> The Python collections module provides specialized container data types like Counter, OrderedDict, defaultdict, and deque, which offer additional functionality and improved performance over standard data structures.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ `Counter` counts occurrences of elements
+✔ `OrderedDict` maintains insertion order with extra features
+✔ `defaultdict` handles missing keys automatically
+✔ `deque` supports efficient operations from both ends
+✔ Collections module improves code efficiency and readability
+
