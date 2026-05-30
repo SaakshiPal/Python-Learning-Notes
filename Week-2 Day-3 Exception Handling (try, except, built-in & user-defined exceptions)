@@ -1,0 +1,405 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 3 Exception Handling in Python (try, except, built-in & user-defined exceptions) 🐍⚠️🛡️
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Errors can occur while a program is running.
+
+Exception handling helps prevent program crashes and allows graceful error management.
+
+---
+
+🔹 What is an Exception?
+
+```text id="exception_def"
+An exception is an error that occurs during program execution and interrupts the normal flow of a program.
+````
+
+---
+
+🎯 Why Exception Handling is Important
+
+✔ Prevents program crashes
+✔ Improves user experience
+✔ Helps debug applications
+✔ Makes programs more robust
+
+---
+
+🔥 Example Without Exception Handling
+
+```python id="without_exception"
+num = int(input("Enter a number: "))
+
+result = 10 / num
+
+print(result)
+```
+
+---
+
+❌ Problem
+
+If user enters:
+
+```text id="zero_input"
+0
+```
+
+Python raises:
+
+```text id="zero_division_error"
+ZeroDivisionError: division by zero
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛡️ 1. try and except
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is try-except?
+
+```text id="try_except_def"
+The try block contains code that may cause an exception, while the except block handles the error.
+```
+
+---
+
+💻 Example
+
+```python id="try_except_example"
+try:
+    num = int(input("Enter number: "))
+    result = 10 / num
+
+    print(result)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+```
+
+---
+
+▶️ Output
+
+```text id="try_except_output"
+Cannot divide by zero
+```
+
+---
+
+🔍 Handling Multiple Exceptions
+
+---
+
+💻 Example
+
+```python id="multiple_exceptions"
+try:
+    num = int(input("Enter number: "))
+    result = 10 / num
+
+except ValueError:
+    print("Invalid input")
+
+except ZeroDivisionError:
+    print("Division by zero not allowed")
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📌 Built-in Exceptions
+
+Python provides many built-in exception classes.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔥 Common Built-in Exceptions
+
+| Exception           | Description            |
+| ------------------- | ---------------------- |
+| `ZeroDivisionError` | Division by zero       |
+| `ValueError`        | Invalid value          |
+| `TypeError`         | Wrong data type        |
+| `IndexError`        | Invalid list index     |
+| `KeyError`          | Missing dictionary key |
+| `FileNotFoundError` | File does not exist    |
+| `NameError`         | Variable not defined   |
+| `AttributeError`    | Invalid attribute      |
+
+---
+
+💻 Example: IndexError
+
+```python id="index_error"
+try:
+    numbers = [1, 2, 3]
+
+    print(numbers[5])
+
+except IndexError:
+    print("Index out of range")
+```
+
+---
+
+▶️ Output
+
+```text id="index_output"
+Index out of range
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📝 Using else Block
+
+The `else` block executes if no exception occurs.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="else_example"
+try:
+    num = int(input("Enter number: "))
+
+except ValueError:
+    print("Invalid input")
+
+else:
+    print("You entered:", num)
+```
+
+---
+
+🔄 Flow
+
+```text id="else_flow"
+try → No Error → else executes
+try → Error → except executes
+```
+
+---
+
+🧹 Using finally Block
+
+The `finally` block always executes.
+
+---
+
+# 💻 Example
+
+```python id="finally_example"
+try:
+    result = 10 / 2
+
+except ZeroDivisionError:
+    print("Error")
+
+finally:
+    print("Execution Completed")
+```
+
+---
+
+▶️ Output
+
+```text id="finally_output"
+Execution Completed
+```
+
+---
+
+🔄 Flow of try-except-finally
+
+```text id="exception_flow"
+try
+  ↓
+Exception?
+ ↓       ↓
+Yes      No
+ ↓        ↓
+except   else
+    ↓
+ finally
+```
+
+---
+
+🚀 Raising Exceptions
+
+You can manually create exceptions using `raise`.
+
+---
+
+💻 Example
+
+```python id="raise_example"
+age = -5
+
+if age < 0:
+    raise ValueError("Age cannot be negative")
+```
+
+---
+
+⚠️ Output
+
+```text id="raise_output"
+ValueError: Age cannot be negative
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ User-Defined Exceptions
+
+Python allows creating custom exceptions.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Syntax
+
+```python id="custom_exception_syntax"
+class CustomError(Exception):
+    pass
+```
+
+---
+
+💻 Example
+
+```python id="custom_exception"
+class InvalidAgeError(Exception):
+    pass
+
+age = -1
+
+if age < 0:
+    raise InvalidAgeError(
+        "Age cannot be negative"
+    )
+```
+
+---
+
+▶️ Output
+
+```text id="custom_exception_output"
+InvalidAgeError: Age cannot be negative
+```
+
+---
+
+💻 Handling User-Defined Exception
+
+```python id="custom_handle"
+class InvalidMarksError(Exception):
+    pass
+
+try:
+    marks = -10
+
+    if marks < 0:
+        raise InvalidMarksError(
+            "Marks cannot be negative"
+        )
+
+except InvalidMarksError as e:
+    print(e)
+```
+
+---
+
+▶️ Output
+
+```text id="custom_handle_output"
+Marks cannot be negative
+```
+
+---
+
+📂 Exception Hierarchy
+
+```text id="exception_hierarchy"
+BaseException
+    |
+ Exception
+    |
+ --------------------------------
+ |        |        |            |
+Value   Type    Index       File
+Error   Error   Error       Error
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Banking systems
+✔ Payment gateways
+✔ Login authentication
+✔ File processing
+✔ API integrations
+✔ Data validation
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_exception"
+try:
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    print(num1 / num2)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+except ValueError:
+    print("Please enter valid numbers")
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Catch specific exceptions
+✔ Use finally for cleanup
+✔ Create custom exceptions when needed
+✔ Avoid using generic except unnecessarily
+✔ Log errors in production applications
+
+---
+
+⚠️ Common Mistakes
+
+❌ Using bare `except`
+❌ Ignoring exceptions
+❌ Catching all exceptions blindly
+❌ Not providing meaningful error messages
+❌ Overusing custom exceptions
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Exception handling in Python is used to manage runtime errors using try, except, else, and finally blocks. Python supports built-in exceptions and also allows developers to create custom exceptions for specific scenarios.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Exceptions are runtime errors
+✔ `try` contains risky code
+✔ `except` handles errors
+✔ `else` runs when no error occurs
+✔ `finally` always executes
+✔ `raise` creates exceptions
+✔ Custom exceptions improve application design
+
+
