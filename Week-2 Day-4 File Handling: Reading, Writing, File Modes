@@ -1,0 +1,402 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 4 File Handling in Python: Reading, Writing & File Modes 📂🐍💾
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+File handling allows Python programs to store and retrieve data from files.
+
+Instead of losing data when a program closes, files help save information permanently.
+
+---
+
+🔹 What is File Handling?
+
+```text id="file_handling_def"
+File handling is the process of creating, reading, writing, and modifying files using Python.
+```
+
+---
+
+🎯 Why File Handling is Important
+
+✔ Store data permanently
+✔ Read existing data
+✔ Generate reports
+✔ Process large datasets
+✔ Used in real-world applications
+
+---
+
+📂 Types of Files
+
+| File Type | Example |
+| ---------- | ---------- |
+| Text File | `.txt` |
+| CSV File | `.csv` |
+| JSON File | `.json` |
+| Excel File | `.xlsx` |
+| Log File | `.log` |
+
+---
+
+🔓 Opening a File
+
+Python uses the `open()` function.
+
+---
+
+🔹 Syntax
+
+```python id="open_syntax"
+file = open("filename.txt", "mode")
+```
+
+---
+
+📌 Parameters
+
+| Parameter | Meaning |
+| ---------- | ---------- |
+| filename | Name of file |
+| mode | Operation type |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📖 Reading Files
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Read Entire File
+
+```python id="read_file"
+file = open("sample.txt", "r")
+
+content = file.read()
+
+print(content)
+
+file.close()
+```
+
+---
+
+🔹 Sample File Content
+
+```text id="sample_content"
+Hello Python
+Welcome to File Handling
+```
+
+---
+
+▶️ Output
+
+```text id="read_output"
+Hello Python
+Welcome to File Handling
+```
+
+---
+
+📄 Read One Line
+
+```python id="readline_example"
+file = open("sample.txt", "r")
+
+print(file.readline())
+
+file.close()
+```
+
+---
+
+▶️ Output
+
+```text id="readline_output"
+Hello Python
+```
+
+---
+
+📄 Read All Lines
+
+```python id="readlines_example"
+file = open("sample.txt", "r")
+
+print(file.readlines())
+
+file.close()
+```
+
+---
+
+▶️ Output
+
+```text id="readlines_output"
+['Hello Python\n', 'Welcome to File Handling']
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✍️ Writing Files
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Write Mode (`w`)
+
+Creates a file if it doesn't exist.
+
+If file exists, old content is removed.
+
+---
+
+💻 Example
+
+```python id="write_example"
+file = open("data.txt", "w")
+
+file.write("Learning Python")
+
+file.close()
+```
+
+---
+
+📌 File Content
+
+```text id="write_content"
+Learning Python
+```
+
+---
+
+➕ Append Mode (`a`)
+
+Adds new data without removing existing content.
+
+---
+
+💻 Example
+
+```python id="append_example"
+file = open("data.txt", "a")
+
+file.write("\nFile Handling")
+
+file.close()
+```
+
+---
+
+📌 Updated File Content
+
+```text id="append_content"
+Learning Python
+File Handling
+```
+
+---
+
+🆕 Creating Files
+
+Using write mode automatically creates files.
+
+---
+
+💻 Example
+
+```python id="create_file"
+file = open("newfile.txt", "w")
+
+file.write("New File Created")
+
+file.close()
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔒 Closing Files
+
+Always close files after use.
+
+---
+
+💻 Example
+
+```python id="close_example"
+file = open("sample.txt", "r")
+
+print(file.read())
+
+file.close()
+```
+
+---
+
+⚠️ Why Close Files?
+
+✔ Free system resources
+✔ Prevent data corruption
+✔ Improve performance
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛡️ Using with Statement
+
+Recommended method for file handling.
+
+Automatically closes files.
+
+---
+
+💻 Example
+
+```python id="with_example"
+with open("sample.txt", "r") as file:
+    content = file.read()
+
+print(content)
+```
+
+---
+
+🎯 Benefits of with
+
+✔ Cleaner code
+✔ Automatic file closing
+✔ Better exception handling
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📋 File Modes in Python
+
+| Mode | Description |
+| ------ | ------ |
+| `r` | Read file |
+| `w` | Write file |
+| `a` | Append data |
+| `x` | Create new file |
+| `r+` | Read and write |
+| `w+` | Write and read |
+| `a+` | Append and read |
+| `rb` | Read binary file |
+| `wb` | Write binary file |
+
+---
+
+💻 Example: Read and Write
+
+```python id="read_write_mode"
+file = open("data.txt", "r+")
+
+print(file.read())
+
+file.write("\nPython")
+
+file.close()
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+❌ Handling File Not Found Error
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="file_error"
+try:
+    file = open("unknown.txt", "r")
+
+except FileNotFoundError:
+    print("File not found")
+```
+
+---
+
+▶️ Output
+
+```text id="file_error_output"
+File not found
+```
+
+---
+
+📊 Reading File Line by Line
+
+---
+
+💻 Example
+
+```python id="line_by_line"
+with open("sample.txt", "r") as file:
+
+    for line in file:
+        print(line.strip())
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Log file processing
+✔ Data analytics
+✔ Report generation
+✔ Chat applications
+✔ Database exports
+✔ Machine learning datasets
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_file"
+with open("student.txt", "w") as file:
+    file.write("Saakshi\n")
+    file.write("Python Developer")
+
+with open("student.txt", "r") as file:
+    print(file.read())
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use `with open()` whenever possible
+✔ Handle exceptions properly
+✔ Close files after use
+✔ Use meaningful file names
+✔ Choose correct file mode
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting to close files
+❌ Using wrong file mode
+❌ Overwriting files accidentally with `w`
+❌ Not handling FileNotFoundError
+❌ Reading huge files at once
+
+---
+
+🧠 Interview Answer (Simple)
+
+> File handling in Python is used to read, write, append, and manage files. The `open()` function is used with different file modes like `r`, `w`, and `a`. The `with open()` statement is the recommended approach because it automatically closes files.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Files provide permanent data storage
+✔ `open()` is used to access files
+✔ `read()`, `readline()`, and `readlines()` read data
+✔ `write()` and `append()` modify files
+✔ `with open()` is the safest approach
+✔ Different file modes support different operations
+
+
