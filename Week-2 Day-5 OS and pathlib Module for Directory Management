@@ -1,0 +1,585 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 5 OS and pathlib Module for Directory Management 🐍📂⚡
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python provides powerful modules for working with:
+
+✔ Files
+✔ Folders
+✔ Directories
+✔ File Paths
+✔ Operating System Operations
+
+The two most commonly used modules are:
+
+* `os`
+* `pathlib`
+
+---
+
+🔹 What is the OS Module?
+
+```text id="os_def"
+The os module provides functions to interact with the operating system, files, and directories.
+```
+
+---
+
+📥 Import OS Module
+
+```python id="import_os"
+import os
+```
+
+---
+
+🎯 Why Use OS Module?
+
+✔ Create folders
+✔ Rename files
+✔ Delete files
+✔ Get current directory
+✔ Navigate file systems
+
+---
+
+📂 Get Current Working Directory
+
+---
+
+💻 Example
+
+```python id="cwd_example"
+import os
+
+print(os.getcwd())
+```
+
+---
+
+▶️ Sample Output
+
+```text id="cwd_output"
+C:\Users\Saakshi\Projects
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 List Files and Folders
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="listdir_example"
+import os
+
+print(os.listdir())
+```
+
+---
+
+# ▶️ Sample Output
+
+```text id="listdir_output"
+['main.py', 'data.txt', 'images']
+```
+
+---
+
+📂 Change Directory
+
+---
+
+💻 Example
+
+```python id="chdir_example"
+import os
+
+os.chdir("Documents")
+
+print(os.getcwd())
+```
+
+---
+
+📁 Create a Directory
+
+---
+
+💻 Example
+
+```python id="mkdir_example"
+import os
+
+os.mkdir("PythonFiles")
+```
+
+---
+
+📌 Result
+
+```text id="mkdir_result"
+Creates a folder named PythonFiles
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📁 Create Multiple Directories
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="makedirs_example"
+import os
+
+os.makedirs("Projects/Python/Week1")
+```
+
+---
+
+📌 Folder Structure
+
+```text id="folder_structure"
+Projects
+ └── Python
+      └── Week1
+```
+
+---
+
+❌ Remove Directory
+
+---
+
+💻 Example
+
+```python id="rmdir_example"
+import os
+
+os.rmdir("PythonFiles")
+```
+
+---
+
+⚠️ Note
+
+Directory must be empty.
+
+---
+
+🔄 Rename File or Folder
+
+---
+
+💻 Example
+
+```python id="rename_example"
+import os
+
+os.rename(
+    "old_file.txt",
+    "new_file.txt"
+)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🗑️ Delete File
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="remove_file"
+import os
+
+os.remove("data.txt")
+```
+
+---
+
+🔍 Check File Exists
+
+---
+
+💻 Example
+
+```python id="exists_example"
+import os
+
+print(
+    os.path.exists("data.txt")
+)
+```
+
+---
+
+▶️ Output
+
+```text id="exists_output"
+True
+```
+
+---
+
+📏 File Information
+
+---
+
+💻 Example
+
+```python id="file_info"
+import os
+
+print(
+    os.path.getsize("data.txt")
+)
+```
+
+---
+
+▶️ Output
+
+```text id="file_size_output"
+1024
+```
+
+(File size in bytes)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌟 What is pathlib?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Definition
+
+```text id="pathlib_def"
+pathlib is a modern, object-oriented module for handling file system paths.
+```
+
+---
+
+🎯 Why pathlib?
+
+✔ Cleaner syntax
+✔ Cross-platform support
+✔ Easier path handling
+✔ Recommended in modern Python
+
+---
+
+📥 Import pathlib
+
+```python id="import_pathlib"
+from pathlib import Path
+```
+
+---
+
+📂 Create Path Object
+
+---
+
+💻 Example
+
+```python id="path_object"
+from pathlib import Path
+
+path = Path("data.txt")
+
+print(path)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔍 Check File Exists
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="path_exists"
+from pathlib import Path
+
+path = Path("data.txt")
+
+print(path.exists())
+```
+
+---
+
+▶️ Output
+
+```text id="path_exists_output"
+True
+```
+
+---
+
+📁 Create Directory
+
+---
+
+# 💻 Example
+
+```python id="path_mkdir"
+from pathlib import Path
+
+Path("Projects").mkdir()
+```
+
+---
+
+📁 Create Nested Directories
+
+---
+
+💻 Example
+
+```python id="path_nested"
+from pathlib import Path
+
+Path(
+    "Projects/Python/Week2"
+).mkdir(
+    parents=True,
+    exist_ok=True
+)
+```
+
+---
+
+📄 Create File
+
+---
+
+💻 Example
+
+```python id="touch_example"
+from pathlib import Path
+
+Path("notes.txt").touch()
+```
+
+---
+
+📌 Result
+
+```text id="touch_output"
+Creates notes.txt
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✍️ Write Text to File
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="write_text"
+from pathlib import Path
+
+file = Path("notes.txt")
+
+file.write_text(
+    "Learning pathlib"
+)
+```
+
+---
+
+📖 Read Text from File
+
+---
+
+💻 Example
+
+```python id="read_text"
+from pathlib import Path
+
+file = Path("notes.txt")
+
+print(
+    file.read_text()
+)
+```
+
+---
+
+▶️ Output
+
+```text id="read_text_output"
+Learning pathlib
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 Get File Name
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="file_name"
+from pathlib import Path
+
+path = Path(
+    "folder/data.txt"
+)
+
+print(path.name)
+```
+
+---
+
+▶️ Output
+
+```text id="filename_output"
+data.txt
+```
+
+---
+
+📂 Get File Extension
+
+---
+
+💻 Example
+
+```python id="file_suffix"
+from pathlib import Path
+
+path = Path(
+    "folder/data.txt"
+)
+
+print(path.suffix)
+```
+
+---
+
+▶️ Output
+
+```text id="suffix_output"
+.txt
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 Get Parent Directory
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="parent_dir"
+from pathlib import Path
+
+path = Path(
+    "folder/data.txt"
+)
+
+print(path.parent)
+```
+
+---
+
+▶️ Output
+
+```text id="parent_output"
+folder
+```
+
+---
+
+⚖️ os vs pathlib
+
+| Feature | os Module | pathlib |
+|----------|-----------|----------|
+| Style | Functional | Object-Oriented |
+| Readability | Moderate | High |
+| Modern Usage | Older | Recommended |
+| Cross Platform | Yes | Yes |
+| Path Operations | More Complex | Easier |
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ File managers
+✔ Backup systems
+✔ Automation scripts
+✔ Data pipelines
+✔ Log processing
+✔ Web applications
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_os_pathlib"
+from pathlib import Path
+
+folder = Path("PythonNotes")
+
+folder.mkdir(
+    exist_ok=True
+)
+
+file = folder / "notes.txt"
+
+file.write_text(
+    "Python Directory Management"
+)
+
+print(
+    file.read_text()
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Prefer `pathlib` for new projects
+✔ Check file existence before operations
+✔ Use `exist_ok=True`
+✔ Handle exceptions properly
+✔ Use absolute paths when necessary
+
+---
+
+⚠️ Common Mistakes
+
+❌ Deleting files without checking existence
+❌ Hardcoding file paths
+❌ Forgetting permissions
+❌ Mixing path separators manually
+❌ Not handling exceptions
+
+---
+
+🧠 Interview Answer (Simple)
+
+> The `os` module provides functions for interacting with the operating system, while `pathlib` offers a modern object-oriented way to manage files and directories. `pathlib` is generally preferred for new Python projects because it is cleaner and easier to use.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ `os` interacts with files and directories
+✔ `os.getcwd()` gets current directory
+✔ `os.listdir()` lists files
+✔ `pathlib` provides modern path handling
+✔ `Path.exists()` checks file existence
+✔ `Path.mkdir()` creates directories
+✔ `pathlib` is preferred in modern Python development
+
