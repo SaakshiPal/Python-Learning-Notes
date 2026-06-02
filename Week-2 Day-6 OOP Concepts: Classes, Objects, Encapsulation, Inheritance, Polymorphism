@@ -1,0 +1,530 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 6 OOP Concepts: Classes, Objects, Encapsulation, Inheritance & Polymorphism 🐍🏗️⚡
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code using objects and classes.
+
+Python supports OOP to build:
+
+✔ Scalable applications
+✔ Reusable code
+✔ Modular systems
+✔ Real-world software
+
+---
+
+🔹 What is OOP?
+
+```text id="oop_def"
+Object-Oriented Programming (OOP) is a programming approach that models real-world entities as objects containing data and behavior.
+```
+
+---
+
+🎯 Why OOP?
+
+✔ Code reusability
+✔ Better organization
+✔ Easy maintenance
+✔ Improved scalability
+✔ Real-world modeling
+
+---
+
+🏗️ Core OOP Concepts
+
+| Concept | Purpose |
+|----------|----------|
+| Class | Blueprint for objects |
+| Object | Instance of a class |
+| Encapsulation | Data hiding |
+| Inheritance | Code reusability |
+| Polymorphism | Multiple forms |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏛️ 1. Classes and Objects
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a Class?
+
+```text id="class_def"
+A class is a blueprint used to create objects.
+```
+
+---
+
+🔹 What is an Object?
+
+```text id="object_def"
+An object is an instance of a class.
+```
+
+---
+
+🎯 Real-Life Example
+
+```text id="car_example"
+Class  → Car
+
+Objects → BMW, Audi, Tesla
+```
+
+---
+
+💻 Creating a Class
+
+```python id="class_example"
+class Student:
+    pass
+```
+
+---
+
+💻 Creating an Object
+
+```python id="object_example"
+class Student:
+    pass
+
+student1 = Student()
+
+print(student1)
+```
+
+---
+
+🔧 Constructor (__init__)
+
+A constructor initializes object attributes.
+
+---
+
+💻 Example
+
+```python id="constructor_example"
+class Student:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+student1 = Student(
+    "Saakshi",
+    22
+)
+
+print(student1.name)
+print(student1.age)
+```
+
+---
+
+▶️ Output
+
+```text id="constructor_output"
+Saakshi
+22
+```
+
+---
+
+🔹 Instance Methods
+
+Methods define object behavior.
+
+---
+
+💻 Example
+
+```python id="method_example"
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(
+            "Hello",
+            self.name
+        )
+
+student = Student("Alex")
+
+student.greet()
+```
+
+---
+
+▶️ Output
+
+```text id="method_output"
+Hello Alex
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔒 2. Encapsulation
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Encapsulation?
+
+```text id="encapsulation_def"
+Encapsulation is the process of restricting direct access to data and exposing it through methods.
+```
+
+---
+
+🎯 Benefits
+
+✔ Data security
+✔ Controlled access
+✔ Better maintainability
+
+---
+
+💻 Example
+
+```python id="encapsulation_example"
+class BankAccount:
+
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(5000)
+
+print(
+    account.get_balance()
+)
+```
+
+---
+
+▶️ Output
+
+```text id="encapsulation_output"
+5000
+```
+
+---
+
+⚠️ Private Variables
+
+Double underscore (`__`) makes variables private.
+
+```python id="private_variable"
+self.__balance
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌳 3. Inheritance
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Inheritance?
+
+```text id="inheritance_def"
+Inheritance allows one class to acquire properties and methods of another class.
+```
+
+---
+
+🎯 Benefits
+
+✔ Code reuse
+✔ Reduced duplication
+✔ Better hierarchy
+
+---
+
+💻 Example
+
+```python id="inheritance_example"
+class Animal:
+
+    def speak(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+    pass
+
+dog = Dog()
+
+dog.speak()
+```
+
+---
+
+▶️ Output
+
+```text id="inheritance_output"
+Animal Sound
+```
+
+---
+
+🔄 Method Overriding
+
+Child class can redefine parent methods.
+
+---
+
+💻 Example
+
+```python id="overriding_example"
+class Animal:
+
+    def speak(self):
+        print("Animal Sound")
+
+class Dog(Animal):
+
+    def speak(self):
+        print("Bark")
+
+dog = Dog()
+
+dog.speak()
+```
+
+---
+
+▶️ Output
+
+```text id="overriding_output"
+Bark
+```
+
+---
+
+🔹 Types of Inheritance
+
+| Type | Description |
+|--------|-------------|
+| Single | One parent, one child |
+| Multiple | Multiple parents |
+| Multilevel | Parent → Child → Grandchild |
+| Hierarchical | One parent, multiple children |
+
+---
+
+💻 Multilevel Inheritance Example
+
+```python id="multilevel_example"
+class A:
+    pass
+
+class B(A):
+    pass
+
+class C(B):
+    pass
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎭 4. Polymorphism
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is Polymorphism?
+
+```text id="polymorphism_def"
+Polymorphism allows the same method name to behave differently for different objects.
+```
+
+---
+
+🎯 Benefits
+
+✔ Flexibility
+
+✔ Extensibility
+
+✔ Cleaner code
+
+---
+
+💻 Example
+
+```python id="polymorphism_example"
+class Dog:
+
+    def sound(self):
+        print("Bark")
+
+class Cat:
+
+    def sound(self):
+        print("Meow")
+
+animals = [
+    Dog(),
+    Cat()
+]
+
+for animal in animals:
+    animal.sound()
+```
+
+---
+
+▶️ Output
+
+```text id="polymorphism_output"
+Bark
+Meow
+```
+
+---
+
+🔄 Operator Polymorphism
+
+Same operator behaves differently.
+
+---
+
+💻 Example
+
+```python id="operator_poly"
+print(5 + 3)
+
+print("Py" + "thon")
+```
+
+---
+
+▶️ Output
+
+```text id="operator_poly_output"
+8
+Python
+```
+
+---
+
+🏗️ Complete OOP Example
+
+```python id="complete_oop"
+class Vehicle:
+
+    def start(self):
+        print("Vehicle Started")
+
+class Car(Vehicle):
+
+    def start(self):
+        print("Car Started")
+
+car = Car()
+
+car.start()
+```
+
+---
+
+▶️ Output
+
+```text id="complete_oop_output"
+Car Started
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Banking Systems
+✔ Hospital Management
+✔ E-commerce Applications
+✔ Game Development
+✔ Employee Management Systems
+✔ AI Applications
+
+---
+
+📊 OOP Concept Summary
+
+| Concept | Purpose |
+|----------|----------|
+| Class | Blueprint |
+| Object | Instance |
+| Encapsulation | Data hiding |
+| Inheritance | Reuse code |
+| Polymorphism | Multiple behaviors |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Mini Practice Program
+
+```python id="practice_oop"
+class Employee:
+
+    def __init__(
+        self,
+        name,
+        salary
+    ):
+        self.name = name
+        self.salary = salary
+
+    def display(self):
+        print(
+            self.name,
+            self.salary
+        )
+
+emp = Employee(
+    "Saakshi",
+    50000
+)
+
+emp.display()
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Follow naming conventions
+✔ Keep classes focused
+✔ Use inheritance wisely
+✔ Encapsulate sensitive data
+✔ Prefer composition when suitable
+
+---
+
+⚠️ Common Mistakes
+
+❌ Overusing inheritance
+❌ Creating huge classes
+❌ Ignoring encapsulation
+❌ Not using constructors properly
+❌ Violating single responsibility principle
+
+---
+
+🧠 Interview Answer (Simple)
+
+> OOP in Python is a programming paradigm based on classes and objects. It includes encapsulation for data protection, inheritance for code reuse, and polymorphism for flexible behavior, making applications scalable and maintainable.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Classes are blueprints for objects
+✔ Objects are instances of classes
+✔ Encapsulation protects data
+✔ Inheritance promotes code reuse
+✔ Polymorphism allows multiple behaviors
+✔ OOP helps build scalable applications
+
