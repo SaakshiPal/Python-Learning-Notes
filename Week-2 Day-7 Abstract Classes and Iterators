@@ -1,0 +1,505 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 2 – Day 7 Abstract Classes and Iterators 🐍🏗️🔄
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+As Python applications become larger, we need:
+
+✔ Better code structure
+
+✔ Standardized class design
+
+✔ Efficient data traversal
+
+Two important concepts that help achieve this are:
+
+* Abstract Classes
+* Iterators
+
+---
+
+🎯 Learning Objectives
+
+By the end of this lesson, you will understand:
+
+✔ Abstract Classes
+✔ Abstract Methods
+✔ Iterator Protocol
+✔ Custom Iterators
+✔ Iterables vs Iterators
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ 1. Abstract Classes
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is an Abstract Class?
+
+```text id="abstract_class_def"
+An abstract class is a class that cannot be instantiated directly and serves as a blueprint for other classes.
+```
+
+---
+
+🎯 Why Use Abstract Classes?
+
+✔ Enforce implementation rules
+✔ Improve code consistency
+✔ Provide common structure
+✔ Support large-scale applications
+
+---
+
+🔧 Real-Life Example
+
+```text id="vehicle_example"
+Vehicle
+
+    ↑
+
+Car
+Bike
+Truck
+```
+
+Every vehicle should have:
+
+✔ start()
+
+✔ stop()
+
+But implementation may differ.
+
+---
+
+📥 Import ABC Module
+
+Python provides the `abc` module.
+
+---
+
+💻 Example
+
+```python id="abc_import"
+from abc import ABC, abstractmethod
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Creating an Abstract Class
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="abstract_class_example"
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+```
+
+---
+
+⚠️ Important
+
+Abstract classes cannot be instantiated.
+
+---
+
+❌ Example
+
+```python id="abstract_error"
+vehicle = Vehicle()
+```
+
+---
+
+▶️ Output
+
+```text id="abstract_error_output"
+TypeError:
+Can't instantiate abstract class
+```
+
+---
+
+🔹 Implementing Abstract Methods
+
+---
+
+💻 Example
+
+```python id="implement_abstract"
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+
+    def start(self):
+        print("Car Started")
+
+car = Car()
+
+car.start()
+```
+
+---
+
+▶️ Output
+
+```text id="implement_output"
+Car Started
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Multiple Abstract Methods
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="multiple_abstract"
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+```
+
+---
+
+💻 Child Class
+
+```python id="shape_example"
+class Rectangle(Shape):
+
+    def area(self):
+        return 100
+
+    def perimeter(self):
+        return 40
+```
+
+---
+
+📌 Benefits of Abstract Classes
+
+✔ Standardized architecture
+
+✔ Better maintainability
+
+✔ Code reusability
+
+✔ Stronger design principles
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔄 2. Iterables and Iterators
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is an Iterable?
+
+```text id="iterable_def"
+An iterable is an object that can be looped over.
+```
+
+---
+
+📌 Examples
+
+```python id="iterable_examples"
+my_list = [1, 2, 3]
+
+my_string = "Python"
+
+my_tuple = (1, 2, 3)
+```
+
+---
+
+🔹 What is an Iterator?
+
+```text id="iterator_def"
+An iterator is an object that produces elements one at a time.
+```
+
+---
+
+🎯 Iterator Benefits
+
+✔ Memory efficient
+✔ Lazy evaluation
+✔ Faster for large datasets
+
+---
+
+🔄 Iterable vs Iterator
+
+| Feature | Iterable | Iterator |
+|----------|----------|----------|
+| Can loop over | ✔ | ✔ |
+| Uses next() | ❌ | ✔ |
+| Stores collection | ✔ | Not necessarily |
+| Lazy evaluation | ❌ | ✔ |
+
+---
+
+🔹 Creating an Iterator
+
+Use `iter()`.
+
+---
+
+💻 Example
+
+```python id="iter_example"
+numbers = [1, 2, 3]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+---
+
+▶️ Output
+
+```text id="iter_output"
+1
+2
+3
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚠️ End of Iterator
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="stop_iteration"
+numbers = [1]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+```
+
+---
+
+▶️ Output
+
+```text id="stop_iteration_output"
+StopIteration
+```
+
+---
+
+🔧 Iterator Protocol
+
+To create a custom iterator:
+
+Must implement:
+
+✔ `__iter__()`
+
+✔ `__next__()`
+
+---
+
+💻 Custom Iterator Example
+
+```python id="custom_iterator"
+class CountDown:
+
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+
+        if self.start <= 0:
+            raise StopIteration
+
+        current = self.start
+
+        self.start -= 1
+
+        return current
+```
+
+---
+
+💻 Using Custom Iterator
+
+```python id="use_iterator"
+counter = CountDown(5)
+
+for num in counter:
+    print(num)
+```
+
+---
+
+▶️ Output
+
+```text id="use_iterator_output"
+5
+4
+3
+2
+1
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🌟 Generator vs Iterator
+
+Generators automatically create iterators.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Generator Example
+
+```python id="generator_example2"
+def count():
+
+    yield 1
+    yield 2
+    yield 3
+
+for num in count():
+    print(num)
+```
+
+---
+
+▶️ Output
+
+```text id="generator_output"
+1
+2
+3
+```
+
+---
+
+⚖️ Iterator vs Generator
+
+| Feature | Iterator | Generator |
+|----------|----------|----------|
+| Manual implementation | ✔ | ❌ |
+| Uses yield | ❌ | ✔ |
+| Simpler syntax | ❌ | ✔ |
+| Memory efficient | ✔ | ✔ |
+
+---
+
+🎯 Real-World Applications
+
+✔ Data streaming
+✔ Large file processing
+✔ Database records
+✔ Machine learning pipelines
+✔ API pagination
+✔ Web scraping
+
+---
+
+🚀 Complete Example
+
+```python id="complete_example"
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+
+    def sound(self):
+        return "Bark"
+
+dog = Dog()
+
+print(dog.sound())
+```
+
+---
+
+▶️ Output
+
+```text id="complete_output"
+Bark
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use abstract classes for common interfaces
+✔ Prefer generators over complex iterators
+✔ Use iterators for large datasets
+✔ Keep custom iterators simple
+✔ Raise StopIteration correctly
+
+---
+
+⚠️ Common Mistakes
+
+❌ Instantiating abstract classes
+❌ Forgetting abstract method implementation
+❌ Missing __next__()
+❌ Infinite iterators accidentally
+❌ Not handling StopIteration
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Abstract classes define a blueprint for subclasses and cannot be instantiated directly. Iterators are objects that produce values one at a time using the iterator protocol, making them memory-efficient for processing large datasets.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Abstract classes enforce structure
+✔ Abstract methods must be implemented
+✔ Iterables can be looped over
+✔ Iterators generate values one by one
+✔ `iter()` creates an iterator
+✔ `next()` retrieves the next element
+✔ Generators simplify iterator creation
+
+
+🚀 Advanced Python Interview Questions
+````
