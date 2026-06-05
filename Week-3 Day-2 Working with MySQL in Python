@@ -1,0 +1,570 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 2 Working with MySQL in Python 🐍🗄️⚡
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python can connect to MySQL databases to:
+
+✔ Store data
+✔ Retrieve data
+✔ Update records
+✔ Delete records
+✔ Build real-world applications
+
+Examples:
+
+* Banking Systems
+* E-commerce Websites
+* Student Management Systems
+* Inventory Management
+
+---
+
+🔹 What is MySQL?
+
+```text id="mysql_def"
+MySQL is an open-source relational database management system (RDBMS) used to store and manage structured data.
+```
+
+---
+
+🎯 Why Use MySQL with Python?
+
+✔ Easy database connectivity
+✔ Fast data storage
+✔ Suppots large datasets
+✔ Widely used in industry
+✔ Ideal for web applications
+
+---
+
+🏗️ Python Database Workflow
+
+```text id="db_workflow"
+Python Application
+        ↓
+MySQL Connector
+        ↓
+MySQL Database
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Install MySQL Connector
+
+Python uses the MySQL Connector package.
+
+---
+
+💻 Installation
+
+```bash id="mysql_install"
+pip install mysql-connector-python
+```
+
+---
+
+📦 Import Connector
+
+```python id="import_mysql"
+import mysql.connector
+```
+
+---
+
+🔗 Connecting to MySQL
+
+---
+
+💻 Example
+
+```python id="mysql_connect"
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password"
+)
+
+print("Connected Successfully")
+```
+
+---
+
+▶️ Output
+
+```text id="connect_output"
+Connected Successfully
+```
+
+---
+
+🔍 Check Connection
+
+```python id="check_connection"
+if connection.is_connected():
+    print("Database Connected")
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ Create Database
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="create_database"
+import mysql.connector
+
+connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password"
+)
+
+cursor = connection.cursor()
+
+cursor.execute(
+    "CREATE DATABASE company"
+)
+```
+
+---
+
+📋 Show Databases
+
+---
+
+💻 Example
+
+```python id="show_databases"
+cursor.execute(
+    "SHOW DATABASES"
+)
+
+for db in cursor:
+    print(db)
+```
+
+---
+
+▶️ Sample Output
+
+```text id="show_db_output"
+company
+mysql
+information_schema
+```
+
+---
+
+🔄 Connect to Specific Database
+
+---
+
+💻 Example
+
+```python id="connect_db"
+connection = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password",
+    database="company"
+)
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ Create Table
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="create_table"
+cursor.execute("""
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    salary FLOAT
+)
+""")
+```
+
+---
+
+📌 Table Structure
+
+| Column | Type |
+|----------|----------|
+| id | INT |
+| name | VARCHAR |
+| salary | FLOAT |
+
+---
+
+➕ Insert Data
+
+---
+
+💻 Example
+
+```python id="insert_data"
+sql = """
+INSERT INTO employees
+(name, salary)
+VALUES (%s, %s)
+"""
+
+values = (
+    "Saakshi",
+    50000
+)
+
+cursor.execute(
+    sql,
+    values
+)
+
+connection.commit()
+```
+
+---
+
+⚠️ Why commit()?
+
+```text id="commit_def"
+commit() permanently saves changes to the database.
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📥 Insert Multiple Records
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="insert_many"
+sql = """
+INSERT INTO employees
+(name, salary)
+VALUES (%s, %s)
+"""
+
+data = [
+
+    ("Alex", 40000),
+
+    ("Emma", 60000),
+
+    ("John", 55000)
+
+]
+
+cursor.executemany(
+    sql,
+    data
+)
+
+connection.commit()
+```
+
+---
+
+📖 Fetch Data
+
+---
+
+💻 Example
+
+```python id="fetch_data"
+cursor.execute(
+    "SELECT * FROM employees"
+)
+
+records = cursor.fetchall()
+
+for row in records:
+    print(row)
+```
+
+---
+
+▶️ Output
+
+```text id="fetch_output"
+(1, 'Saakshi', 50000)
+(2, 'Alex', 40000)
+```
+
+---
+
+📖 Fetch One Record
+
+---
+
+💻 Example
+
+```python id="fetch_one"
+cursor.execute(
+    "SELECT * FROM employees"
+)
+
+print(
+    cursor.fetchone()
+)
+```
+
+---
+
+🔍 Filter Data
+
+---
+
+💻 Example
+
+```python id="filter_data"
+cursor.execute("""
+SELECT * FROM employees
+WHERE salary > 50000
+""")
+
+for row in cursor:
+    print(row)
+```
+
+---
+
+✏️ Update Data
+
+---
+
+💻 Example
+
+```python id="update_data"
+sql = """
+UPDATE employees
+SET salary = 70000
+WHERE name = 'Alex'
+"""
+
+cursor.execute(sql)
+
+connection.commit()
+```
+
+---
+
+❌ Delete Data
+
+---
+
+💻 Example
+
+```python id="delete_data"
+sql = """
+DELETE FROM employees
+WHERE id = 2
+"""
+
+cursor.execute(sql)
+
+connection.commit()
+```
+
+---
+
+🗑️ Drop Table
+
+---
+
+💻 Example
+
+```python id="drop_table"
+cursor.execute(
+    "DROP TABLE employees"
+)
+```
+
+---
+
+🧹 Close Connection
+
+Always close database resources.
+
+---
+
+💻 Example
+
+```python id="close_connection"
+cursor.close()
+
+connection.close()
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛡️ Exception Handling
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="db_exception"
+import mysql.connector
+
+try:
+
+    connection = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="password"
+    )
+
+    print("Connected")
+
+except mysql.connector.Error as err:
+
+    print(
+        "Error:",
+        err
+    )
+```
+
+---
+
+🔐 SQL Injection Prevention
+
+Always use parameterized queries.
+
+---
+
+❌ Unsafe
+
+```python id="unsafe_query"
+query = f"""
+SELECT * FROM users
+WHERE name = '{user}'
+"""
+```
+
+---
+
+✅ Safe
+
+```python id="safe_query"
+query = """
+SELECT * FROM users
+WHERE name = %s
+"""
+
+cursor.execute(
+    query,
+    (user,)
+)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 CRUD Operations
+
+| Operation | SQL Command |
+|------------|------------|
+| Create | INSERT |
+| Read | SELECT |
+| Update | UPDATE |
+| Delete | DELETE |
+
+---
+
+🎯 Real-World Applications
+
+✔ Banking Systems
+✔ E-commerce Platforms
+✔ Hospital Management
+✔ Student Portals
+✔ Employee Management Systems
+✔ Inventory Systems
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Mini Practice Project Student Management System
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Features
+
+✔ Add Student
+✔ View Students
+✔ Update Student
+✔ Delete Student
+✔ MySQL Database Storage
+
+---
+
+💻 Sample Insert
+
+```python id="student_insert"
+name = input(
+    "Enter Student Name: "
+)
+
+sql = """
+INSERT INTO students(name)
+VALUES(%s)
+"""
+
+cursor.execute(
+    sql,
+    (name,)
+)
+
+connection.commit()
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Always close connections
+✔ Use parameterized queries
+✔ Handle exceptions
+✔ Commit transactions
+✔ Normalize database tables
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting commit()
+❌ Not closing connections
+❌ SQL injection vulnerabilities
+❌ Hardcoding credentials
+❌ Ignoring exceptions
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python connects to MySQL using the mysql-connector-python package. It allows applications to perform CRUD operations such as creating, reading, updating, and deleting data while using SQL queries for database management.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ MySQL stores structured data
+✔ Python connects using mysql.connector
+✔ CRUD operations manage data
+✔ commit() saves changes
+✔ Parameterized queries prevent SQL injection
+✔ Always close database connections
+
+
+🚀 Employee Management System Project
+````
