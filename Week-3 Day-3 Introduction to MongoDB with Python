@@ -1,0 +1,544 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 3 Introduction to MongoDB with Python 🍃🐍⚡
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+MongoDB is one of the most popular NoSQL databases.
+
+Unlike MySQL, MongoDB stores data in flexible JSON-like documents.
+
+Python can interact with MongoDB to:
+
+✔ Store documents
+✔ Retrieve data
+✔ Update records
+✔ Delete records
+✔ Build scalable applications
+
+---
+
+🔹 What is MongoDB?
+
+```text id="mongodb_def"
+MongoDB is a NoSQL document-oriented database that stores data in BSON (Binary JSON) format.
+```
+
+---
+
+🎯 Why MongoDB?
+
+✔ Flexible schema
+✔ High performance
+✔ Easy scalability
+✔ JSON-like documents
+✔ Widely used in modern applications
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚖️ MySQL vs MongoDB
+
+| Feature | MySQL | MongoDB |
+|----------|----------|----------|
+| Database Type | Relational | NoSQL |
+| Storage | Tables | Collections |
+| Record | Row | Document |
+| Schema | Fixed | Flexible |
+| Query Language | SQL | MongoDB Query Language |
+
+---
+
+🏗️ MongoDB Structure
+
+```text id="mongodb_structure"
+Database
+    ↓
+Collection
+    ↓
+Document
+```
+
+---
+
+📄 Example Document
+
+```json id="mongodb_document"
+{
+    "name": "Saakshi",
+    "age": 22,
+    "course": "Python"
+}
+```
+
+---
+
+📥 Install MongoDB Driver
+
+Python uses PyMongo to connect with MongoDB.
+
+---
+
+💻 Installation
+
+```bash id="install_pymongo"
+pip install pymongo
+```
+
+---
+
+📦 Import PyMongo
+
+```python id="import_pymongo"
+from pymongo import MongoClient
+```
+
+---
+
+🔗 Connect to MongoDB
+
+---
+
+💻 Example
+
+```python id="mongodb_connect"
+from pymongo import MongoClient
+
+client = MongoClient(
+    "mongodb://localhost:27017/"
+)
+
+print("Connected Successfully")
+```
+
+---
+
+▶️ Output
+
+```text id="mongodb_connect_output"
+Connected Successfully
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ Create Database
+
+MongoDB automatically creates databases when data is inserted.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="create_database"
+db = client["company"]
+```
+
+---
+
+🗂️ Create Collection
+
+Collections are similar to tables in SQL.
+
+---
+
+💻 Example
+
+```python id="create_collection"
+employees = db["employees"]
+```
+
+---
+
+📥 Insert One Document
+
+---
+
+💻 Example
+
+```python id="insert_one"
+employee = {
+    "name": "Saakshi",
+    "salary": 50000,
+    "department": "IT"
+}
+
+employees.insert_one(employee)
+```
+
+---
+
+▶️ Output
+
+```text id="insert_one_output"
+Document Inserted
+```
+
+---
+
+📥 Insert Multiple Documents
+
+---
+
+💻 Example
+
+```python id="insert_many"
+data = [
+
+    {
+        "name": "Alex",
+        "salary": 40000
+    },
+
+    {
+        "name": "Emma",
+        "salary": 60000
+    },
+
+    {
+        "name": "John",
+        "salary": 55000
+    }
+
+]
+
+employees.insert_many(data)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📖 Retrieve Documents
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 Find All Documents
+
+```python id="find_all"
+for emp in employees.find():
+    print(emp)
+```
+
+---
+
+▶️ Sample Output
+
+```text id="find_output"
+{
+ '_id': ObjectId(...),
+ 'name': 'Saakshi',
+ 'salary': 50000
+}
+```
+
+---
+
+🔹 Find One Document
+
+```python id="find_one"
+employee = employees.find_one(
+    {"name": "Saakshi"}
+)
+
+print(employee)
+```
+
+---
+
+🔍 Query Documents
+
+---
+
+💻 Example
+
+```python id="query_docs"
+for emp in employees.find(
+    {"salary": {"$gt": 50000}}
+):
+    print(emp)
+```
+
+---
+
+📌 MongoDB Operators
+
+| Operator | Meaning |
+|-----------|-----------|
+| `$gt` | Greater than |
+| `$lt` | Less than |
+| `$gte` | Greater than or equal |
+| `$lte` | Less than or equal |
+| `$eq` | Equal |
+| `$ne` | Not equal |
+
+---
+
+✏️ Update One Document
+
+---
+
+💻 Example
+
+```python id="update_one"
+employees.update_one(
+    {"name": "Alex"},
+    {
+        "$set": {
+            "salary": 70000
+        }
+    }
+)
+```
+
+---
+
+▶️ Result
+
+```text id="update_result"
+Document Updated
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✏️ Update Multiple Documents
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="update_many"
+employees.update_many(
+    {},
+    {
+        "$set": {
+            "status": "Active"
+        }
+    }
+)
+```
+
+---
+
+❌ Delete One Document
+
+---
+
+💻 Example
+
+```python id="delete_one"
+employees.delete_one(
+    {"name": "Alex"}
+)
+```
+
+---
+
+❌ Delete Multiple Documents
+
+---
+
+💻 Example
+
+```python id="delete_many"
+employees.delete_many(
+    {"salary": {"$lt": 30000}}
+)
+```
+
+---
+
+📊 Count Documents
+
+---
+
+💻 Example
+
+```python id="count_docs"
+count = employees.count_documents({})
+
+print(count)
+```
+
+---
+
+▶️ Output
+
+```text id="count_output"
+5
+```
+
+---
+
+📑 Sorting Documents
+
+---
+
+💻 Example
+
+```python id="sort_docs"
+for emp in employees.find().sort(
+    "salary",
+    -1
+):
+    print(emp)
+```
+
+---
+
+📌 Sort Order
+
+| Value | Order |
+|---------|---------|
+| `1` | Ascending |
+| `-1` | Descending |
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🛡️ Exception Handling
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="mongo_exception"
+from pymongo import MongoClient
+
+try:
+
+    client = MongoClient(
+        "mongodb://localhost:27017/"
+    )
+
+    print("Connected")
+
+except Exception as e:
+
+    print("Error:", e)
+```
+
+---
+
+🔐 MongoDB Atlas
+
+MongoDB can also run in the cloud.
+
+---
+
+🌐 Connection Example
+
+```python id="atlas_connect"
+client = MongoClient(
+    "mongodb+srv://username:password@cluster.mongodb.net/"
+)
+```
+
+---
+
+🚀 Mini Project
+
+Student Management System
+
+---
+
+Features
+
+✔ Add Student
+✔ View Students
+✔ Update Student
+✔ Delete Student
+✔ MongoDB Storage
+
+---
+
+💻 Add Student Example
+
+```python id="student_insert"
+students = db["students"]
+
+student = {
+
+    "name": "Saakshi",
+
+    "course": "Python",
+
+    "age": 22
+}
+
+students.insert_one(student)
+```
+
+---
+
+⚖️ SQL vs MongoDB Example
+
+---
+
+SQL
+
+```sql id="sql_example"
+SELECT * FROM employees
+WHERE salary > 50000;
+```
+
+---
+
+MongoDB
+
+```javascript id="mongo_query"
+db.employees.find(
+    {
+        salary: {
+            $gt: 50000
+        }
+    }
+)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Social Media Platforms
+✔ E-commerce Websites
+✔ Content Management Systems
+✔ IoT Applications
+✔ Analytics Systems
+✔ AI Applications
+
+---
+
+🔧 Best Practices
+
+✔ Create indexes for frequent queries
+✔ Validate data before inserting
+✔ Use meaningful collection names
+✔ Backup databases regularly
+✔ Handle exceptions properly
+
+---
+
+⚠️ Common Mistakes
+
+❌ Storing duplicate data unnecessarily
+❌ Ignoring indexes
+❌ Not validating documents
+❌ Large unstructured documents
+❌ Forgetting error handling
+
+---
+
+🧠 Interview Answer (Simple)
+
+> MongoDB is a NoSQL document database that stores data in JSON-like documents. Python interacts with MongoDB using the PyMongo library, allowing developers to perform CRUD operations efficiently while benefiting from MongoDB's flexible schema and scalability.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ MongoDB is a NoSQL database
+✔ Collections contain documents
+✔ Documents are JSON-like objects
+✔ PyMongo connects Python to MongoDB
+✔ CRUD operations manage documents
+✔ MongoDB supports flexible schemas
+✔ MongoDB Atlas provides cloud hosting
+
