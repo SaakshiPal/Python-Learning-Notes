@@ -1,0 +1,636 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 4 Built-in Python Libraries: math, random, datetime, os, sys, platform 🐍📚⚡
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python comes with a rich Standard Library that provides ready-to-use modules for common programming tasks.
+
+These libraries help developers:
+
+✔ Perform calculations
+✔ Generate random values
+✔ Work with dates and times
+✔ Manage files and directories
+✔ Access system information
+✔ Build powerful applications faster
+
+---
+
+🎯 Learning Objectives
+
+By the end of this lesson, you will understand:
+
+✔ `math` module
+✔ `random` module
+✔ `datetime` module
+✔ `os` module
+✔ `sys` module
+✔ `platform` module
+
+---
+
+📦 What is a Python Module?
+
+```text id="module_def"
+A module is a file containing Python code, functions, classes, and variables that can be imported and reused.
+```
+
+---
+
+📥 Importing Modules
+
+---
+
+💻 Example
+
+```python id="import_example"
+import math
+
+print(math.sqrt(25))
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📐 1. math Module
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is math Module?
+
+```text id="math_def"
+The math module provides mathematical functions and constants.
+```
+
+---
+
+📥 Import
+
+```python id="import_math"
+import math
+```
+
+---
+
+📌 Common Functions
+
+| Function | Purpose |
+|-----------|----------|
+| `sqrt()` | Square root |
+| `pow()` | Power |
+| `ceil()` | Round up |
+| `floor()` | Round down |
+| `factorial()` | Factorial |
+| `fabs()` | Absolute value |
+
+---
+
+💻 Square Root
+
+```python id="sqrt_example"
+import math
+
+print(math.sqrt(64))
+```
+
+---
+
+▶️ Output
+
+```text id="sqrt_output"
+8.0
+```
+
+---
+
+💻 Power Function
+
+```python id="pow_example"
+import math
+
+print(math.pow(2, 5))
+```
+
+---
+
+▶️ Output
+
+```text id="pow_output"
+32.0
+```
+
+---
+
+💻 Factorial
+
+```python id="factorial_example"
+import math
+
+print(math.factorial(5))
+```
+
+---
+
+▶️ Output
+
+```text id="factorial_output"
+120
+```
+
+---
+
+📌 Important Constants
+
+```python id="math_constants"
+import math
+
+print(math.pi)
+
+print(math.e)
+```
+
+---
+
+▶️ Output
+
+```text id="constants_output"
+3.141592653589793
+2.718281828459045
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎲 2. random Module
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is random Module?
+
+```text id="random_def"
+The random module generates random numbers and selections.
+```
+
+---
+
+📥 Import
+
+```python id="import_random"
+import random
+```
+
+---
+
+💻 Random Integer
+
+```python id="randint_example"
+import random
+
+print(
+    random.randint(1, 10)
+)
+```
+
+---
+
+💻 Random Choice
+
+```python id="choice_example"
+import random
+
+fruits = [
+    "Apple",
+    "Banana",
+    "Mango"
+]
+
+print(
+    random.choice(fruits)
+)
+```
+
+---
+
+💻 Shuffle List
+
+```python id="shuffle_example"
+import random
+
+numbers = [1, 2, 3, 4]
+
+random.shuffle(numbers)
+
+print(numbers)
+```
+
+---
+
+💻 Random Float
+
+```python id="random_float"
+import random
+
+print(random.random())
+```
+
+---
+
+📌 Output Range
+
+```text id="random_range"
+0.0 to 1.0
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📅 3. datetime Module
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is datetime Module?
+
+```text id="datetime_def"
+The datetime module is used for working with dates and times.
+```
+
+---
+
+📥 Import
+
+```python id="import_datetime"
+from datetime import datetime
+```
+
+---
+
+💻 Current Date and Time
+
+```python id="current_datetime"
+from datetime import datetime
+
+now = datetime.now()
+
+print(now)
+```
+
+---
+
+💻 Current Date
+
+```python id="current_date"
+from datetime import date
+
+today = date.today()
+
+print(today)
+```
+
+---
+
+💻 Create Custom Date
+
+```python id="custom_date"
+from datetime import datetime
+
+birthday = datetime(
+    2003,
+    10,
+    5
+)
+
+print(birthday)
+```
+
+---
+
+💻 Formatting Date
+
+```python id="date_format"
+from datetime import datetime
+
+now = datetime.now()
+
+print(
+    now.strftime(
+        "%d-%m-%Y"
+    )
+)
+```
+
+---
+
+▶️ Sample Output
+
+```text id="date_format_output"
+10-06-2026
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📂 4. os Module
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is os Module?
+
+```text id="os_def2"
+The os module allows interaction with the operating system.
+```
+
+---
+
+📥 Import
+
+```python id="import_os2"
+import os
+```
+
+---
+
+💻 Current Directory
+
+```python id="getcwd_example"
+import os
+
+print(
+    os.getcwd()
+)
+```
+
+---
+
+💻 List Files
+
+```python id="list_files"
+import os
+
+print(
+    os.listdir()
+)
+```
+
+---
+
+💻 Create Directory
+
+```python id="mkdir_os"
+import os
+
+os.mkdir("Projects")
+```
+
+---
+
+💻 Check File Exists
+
+```python id="exists_os"
+import os
+
+print(
+    os.path.exists(
+        "data.txt"
+    )
+)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🖥️ 5. sys Module
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is sys Module?
+
+```text id="sys_def"
+The sys module provides access to Python interpreter and system-specific parameters.
+```
+
+---
+
+📥 Import
+
+```python id="import_sys"
+import sys
+```
+
+---
+
+💻 Python Version
+
+```python id="python_version"
+import sys
+
+print(
+    sys.version
+)
+```
+
+---
+
+💻 Command-Line Arguments
+
+```python id="argv_example"
+import sys
+
+print(
+    sys.argv
+)
+```
+
+---
+
+💻 Exit Program
+
+```python id="exit_program"
+import sys
+
+sys.exit()
+```
+
+---
+
+📌 Useful Attributes
+
+| Attribute | Purpose |
+|------------|----------|
+| `sys.version` | Python version |
+| `sys.argv` | Command-line arguments |
+| `sys.path` | Module search paths |
+| `sys.exit()` | Exit program |
+
+---
+
+💻 Module Search Path
+
+```python id="sys_path"
+import sys
+
+print(
+    sys.path
+)
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🖥️ 6. platform Module
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is platform Module?
+
+```text id="platform_def"
+The platform module provides information about the operating system and hardware.
+```
+
+---
+
+📥 Import
+
+```python id="import_platform"
+import platform
+```
+
+---
+
+💻 Operating System
+
+```python id="os_name"
+import platform
+
+print(
+    platform.system()
+)
+```
+
+---
+
+▶️ Sample Output
+
+```text id="os_name_output"
+Windows
+```
+
+---
+
+💻 OS Version
+
+```python id="platform_version"
+import platform
+
+print(
+    platform.version()
+)
+```
+
+---
+
+💻 Processor Information
+
+```python id="processor_info"
+import platform
+
+print(
+    platform.processor()
+)
+```
+
+---
+
+💻 Complete Platform Info
+
+```python id="platform_complete"
+import platform
+
+print(
+    platform.platform()
+)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Summary Table
+
+| Module | Purpose |
+|----------|----------|
+| `math` | Mathematical operations |
+| `random` | Random values |
+| `datetime` | Date and time |
+| `os` | Operating system operations |
+| `sys` | Python interpreter information |
+| `platform` | System information |
+
+---
+
+🎯 Real-World Applications
+
+✔ Scientific Calculations
+✔ Game Development
+✔ Scheduling Systems
+✔ Automation Scripts
+✔ System Monitoring
+✔ Data Analysis
+✔ AI Applications
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_modules"
+import random
+from datetime import datetime
+
+number = random.randint(
+    1,
+    100
+)
+
+print(
+    "Random Number:",
+    number
+)
+
+print(
+    "Current Time:",
+    datetime.now()
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Import only required modules
+✔ Use aliases when appropriate
+✔ Read official documentation
+✔ Avoid unnecessary imports
+✔ Keep code organized
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting imports
+❌ Naming variables same as modules
+❌ Using outdated functions
+❌ Hardcoding date calculations
+❌ Ignoring platform differences
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python provides many built-in libraries such as `math` for calculations, `random` for random values, `datetime` for date and time operations, `os` for operating system interactions, `sys` for interpreter-level access, and `platform` for system information.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Python Standard Library contains powerful built-in modules
+✔ `math` handles mathematical operations
+✔ `random` generates random values
+✔ `datetime` manages dates and times
+✔ `os` interacts with the operating system
+✔ `sys` provides interpreter information
+✔ `platform` provides hardware and OS details
+
