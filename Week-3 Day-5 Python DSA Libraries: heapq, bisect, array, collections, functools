@@ -1,0 +1,614 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 5 Python DSA Libraries: heapq, bisect, array, collections & functools 🐍⚡📚
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Python provides several built-in libraries that make Data Structures and Algorithms (DSA) more efficient.
+
+These libraries help with:
+
+✔ Searching
+✔ Sorting
+✔ Priority Queues
+✔ Efficient Data Storage
+✔ Optimization
+✔ Competitive Programming
+
+---
+
+🎯 Learning Objectives
+
+By the end of this lesson, you will understand:
+
+✔ `heapq`
+✔ `bisect`
+✔ `array`
+✔ `collections`
+✔ `functools`
+
+---
+
+📌 Why Learn DSA Libraries?
+
+✔ Faster coding
+✔ Better performance
+✔ Interview preparation
+✔ Competitive programming
+✔ Real-world applications
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏔️ 1. heapq Module
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is heapq?
+
+```text id="heapq_def"
+heapq provides an implementation of the heap queue (priority queue) algorithm.
+```
+
+---
+
+📌 Heap Property
+
+```text id="heap_property"
+Smallest element is always at the root.
+```
+
+---
+
+📥 Import
+
+```python id="heap_import"
+import heapq
+```
+
+---
+
+💻 Create Heap
+
+```python id="heap_create"
+import heapq
+
+numbers = [4, 1, 7, 3]
+
+heapq.heapify(numbers)
+
+print(numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="heap_output"
+[1, 3, 7, 4]
+```
+
+---
+
+➕ Insert Element
+
+```python id="heap_push"
+import heapq
+
+heap = [1, 3, 5]
+
+heapq.heappush(
+    heap,
+    2
+)
+
+print(heap)
+```
+
+---
+
+❌ Remove Smallest Element
+
+```python id="heap_pop"
+import heapq
+
+heap = [1, 3, 5]
+
+print(
+    heapq.heappop(heap)
+)
+```
+
+---
+
+▶️ Output
+
+```text id="heap_pop_output"
+1
+```
+
+---
+
+🔍 Largest Elements
+
+```python id="largest_heap"
+import heapq
+
+numbers = [10, 5, 30, 20]
+
+print(
+    heapq.nlargest(
+        2,
+        numbers
+    )
+)
+```
+
+---
+
+▶️ Output
+
+```text id="largest_output"
+[30, 20]
+```
+
+---
+
+🎯 Applications
+
+✔ Task Scheduling
+✔ Priority Queues
+✔ Dijkstra's Algorithm
+✔ Job Processing Systems
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔎 2. bisect Module
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is bisect?
+
+```text id="bisect_def"
+bisect provides support for maintaining sorted lists using binary search.
+```
+
+---
+
+📥 Import
+
+```python id="bisect_import"
+import bisect
+```
+
+---
+
+💻 Binary Search Position
+
+```python id="bisect_position"
+import bisect
+
+numbers = [10, 20, 30, 40]
+
+position = bisect.bisect(
+    numbers,
+    25
+)
+
+print(position)
+```
+
+---
+
+▶️ Output
+
+```text id="bisect_output"
+2
+```
+
+---
+
+➕ Insert While Keeping Sorted
+
+```python id="bisect_insert"
+import bisect
+
+numbers = [10, 20, 30, 40]
+
+bisect.insort(
+    numbers,
+    25
+)
+
+print(numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="bisect_insert_output"
+[10, 20, 25, 30, 40]
+```
+
+---
+
+🎯 Applications
+
+✔ Fast searching
+✔ Leaderboards
+✔ Sorted databases
+✔ Ranking systems
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📦 3. array Module
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is array?
+
+```text id="array_def"
+The array module provides memory-efficient arrays for storing elements of the same type.
+```
+
+---
+
+📥 Import
+
+```python id="array_import"
+import array
+```
+
+---
+
+💻 Create Array
+
+```python id="array_create"
+import array
+
+numbers = array.array(
+    'i',
+    [1, 2, 3, 4]
+)
+
+print(numbers)
+```
+
+---
+
+▶️ Output
+
+```text id="array_output"
+array('i', [1, 2, 3, 4])
+```
+
+---
+
+➕ Append Element
+
+```python id="array_append"
+import array
+
+numbers = array.array(
+    'i',
+    [1, 2]
+)
+
+numbers.append(3)
+
+print(numbers)
+```
+
+---
+
+❌ Remove Element
+
+```python id="array_remove"
+numbers.remove(2)
+
+print(numbers)
+```
+
+---
+
+📌 Common Type Codes
+
+| Code | Data Type |
+|--------|-----------|
+| `i` | Integer |
+| `f` | Float |
+| `d` | Double |
+| `u` | Unicode Character |
+
+---
+
+🎯 Applications
+
+✔ Numeric processing
+✔ Scientific computing
+✔ Memory-sensitive applications
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 4. collections Module
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is collections?
+
+```text id="collections_def2"
+collections provides specialized container data types.
+```
+
+---
+
+📌 Common Classes
+
+| Class | Purpose |
+|----------|----------|
+| Counter | Frequency counting |
+| defaultdict | Default values |
+| deque | Fast queue |
+| OrderedDict | Ordered dictionary |
+
+---
+
+💻 Counter Example
+
+```python id="counter_dsa"
+from collections import Counter
+
+numbers = [1,1,2,2,2,3]
+
+count = Counter(numbers)
+
+print(count)
+```
+
+---
+
+▶️ Output
+
+```text id="counter_dsa_output"
+Counter({2: 3, 1: 2, 3: 1})
+```
+
+---
+
+💻 deque Example
+
+```python id="deque_dsa"
+from collections import deque
+
+queue = deque()
+
+queue.append(10)
+
+queue.append(20)
+
+print(queue)
+```
+
+---
+
+▶️ Output
+
+```text id="deque_dsa_output"
+deque([10, 20])
+```
+
+---
+
+💻 defaultdict Example
+
+```python id="defaultdict_dsa"
+from collections import defaultdict
+
+data = defaultdict(int)
+
+data["apple"] += 1
+
+print(data)
+```
+
+---
+
+▶️ Output
+
+```text id="defaultdict_dsa_output"
+defaultdict(<class 'int'>,
+{'apple': 1})
+```
+
+---
+
+🎯 Applications
+
+✔ Frequency Analysis
+✔ BFS Algorithms
+✔ Graph Traversal
+✔ Queue Management
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+⚡ 5. functools Module
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is functools?
+
+```text id="functools_def"
+functools provides higher-order functions and utilities for optimization.
+```
+
+---
+
+📥 Import
+
+```python id="functools_import"
+import functools
+```
+
+---
+
+🔄 reduce()
+
+Applies a function cumulatively.
+
+---
+
+💻 Example
+
+```python id="reduce_example"
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+
+result = reduce(
+    lambda x, y: x + y,
+    numbers
+)
+
+print(result)
+```
+
+---
+
+▶️ Output
+
+```text id="reduce_output"
+10
+```
+
+---
+
+🚀 lru_cache()
+
+Caches function results.
+
+---
+
+💻 Example
+
+```python id="lru_cache"
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fibonacci(n):
+
+    if n < 2:
+        return n
+
+    return (
+        fibonacci(n-1)
+        +
+        fibonacci(n-2)
+    )
+
+print(fibonacci(10))
+```
+
+---
+
+▶️ Output
+
+```text id="fibonacci_output"
+55
+```
+
+---
+
+🎯 Why lru_cache?
+
+✔ Faster recursion
+
+✔ Dynamic Programming
+
+✔ Reduced computation
+
+---
+
+📊 Library Comparison
+
+| Library | Main Purpose |
+|----------|--------------|
+| heapq | Priority Queue |
+| bisect | Binary Search |
+| array | Memory-efficient storage |
+| collections | Advanced containers |
+| functools | Optimization utilities |
+
+---
+
+🚀 Mini Practice Program
+
+```python id="practice_dsa"
+import heapq
+
+numbers = [10, 30, 20, 40]
+
+heapq.heapify(numbers)
+
+print(
+    heapq.heappop(numbers)
+)
+```
+
+---
+
+▶️ Output
+
+```text id="practice_output"
+10
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎯 Real-World Applications
+
+✔ Search Engines
+✔ Scheduling Systems
+✔ Recommendation Engines
+✔ Graph Algorithms
+✔ Machine Learning Pipelines
+✔ Competitive Programming
+
+---
+
+🔧 Best Practices
+
+✔ Use heapq for priority queues
+✔ Use bisect for sorted lists
+✔ Use deque instead of lists for queues
+✔ Use lru_cache for recursive optimization
+✔ Choose the right data structure
+
+---
+
+⚠️ Common Mistakes
+
+❌ Using list instead of heap
+❌ Forgetting to heapify
+❌ Using bisect on unsorted lists
+❌ Overusing recursion without caching
+❌ Choosing inefficient containers
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python provides powerful DSA libraries such as heapq for priority queues, bisect for binary search operations, array for memory-efficient storage, collections for advanced containers, and functools for optimization and higher-order functions.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ `heapq` implements heaps and priority queues
+✔ `bisect` performs binary search efficiently
+✔ `array` stores homogeneous data efficiently
+✔ `collections` provides advanced data structures
+✔ `functools` helps optimize code
+✔ These libraries are valuable for interviews and competitive programming
+
