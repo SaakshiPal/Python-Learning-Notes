@@ -1,0 +1,531 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 6 GUI Programming with Tkinter 🐍🖥️🎨
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+GUI (Graphical User Interface) allows users to interact with applications using:
+
+✔ Buttons
+✔ Text Boxes
+✔ Labels
+✔ Menus
+✔ Windows
+
+Instead of typing commands in the terminal.
+
+Python provides **Tkinter**, a built-in library for creating desktop applications.
+
+---
+
+🔹 What is Tkinter?
+
+```text id="tkinter_def"
+Tkinter is Python's standard GUI library used for creating desktop applications.
+```
+
+---
+
+🎯 Why Use Tkinter?
+
+✔ Built into Python
+✔ Easy to learn
+✔ Cross-platform
+✔ Lightweight
+✔ Great for beginner GUI projects
+
+---
+
+🏗️ Tkinter Architecture
+
+```text id="tkinter_architecture"
+Python Program
+      ↓
+   Tkinter
+      ↓
+ Desktop GUI
+```
+
+---
+
+📥 Import Tkinter
+
+```python id="import_tkinter"
+import tkinter as tk
+```
+
+---
+
+🖥️ Create First Window
+
+---
+
+💻 Example
+
+```python id="first_window"
+import tkinter as tk
+
+window = tk.Tk()
+
+window.title("My First App")
+
+window.geometry("400x300")
+
+window.mainloop()
+```
+
+---
+
+📌 Explanation
+
+| Method | Purpose |
+|----------|----------|
+| `Tk()` | Create window |
+| `title()` | Set window title |
+| `geometry()` | Set size |
+| `mainloop()` | Run application |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏷️ Labels
+
+Labels display text on the window.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="label_example"
+import tkinter as tk
+
+window = tk.Tk()
+
+label = tk.Label(
+    window,
+    text="Hello Tkinter"
+)
+
+label.pack()
+
+window.mainloop()
+```
+
+---
+
+▶️ Output
+
+```text id="label_output"
+Displays text:
+Hello Tkinter
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔘 Buttons
+
+Buttons perform actions when clicked.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="button_example"
+import tkinter as tk
+
+def greet():
+    print("Welcome!")
+
+window = tk.Tk()
+
+button = tk.Button(
+    window,
+    text="Click Me",
+    command=greet
+)
+
+button.pack()
+
+window.mainloop()
+```
+
+---
+
+📝 Entry Widget
+
+Used to take user input.
+
+---
+
+💻 Example
+
+```python id="entry_example"
+import tkinter as tk
+
+window = tk.Tk()
+
+entry = tk.Entry(window)
+
+entry.pack()
+
+window.mainloop()
+```
+
+---
+
+📥 Get Input Value
+
+```python id="entry_get"
+import tkinter as tk
+
+def show_text():
+
+    print(
+        entry.get()
+    )
+
+window = tk.Tk()
+
+entry = tk.Entry(window)
+
+entry.pack()
+
+button = tk.Button(
+    window,
+    text="Submit",
+    command=show_text
+)
+
+button.pack()
+
+window.mainloop()
+```
+
+---
+
+📦 Layout Managers
+
+Layout managers arrange widgets.
+
+---
+
+🔹 pack()
+
+Automatically places widgets.
+
+```python id="pack_example"
+widget.pack()
+```
+
+---
+
+🔹 grid()
+
+Places widgets in rows and columns.
+
+```python id="grid_example"
+widget.grid(
+    row=0,
+    column=0
+)
+```
+
+---
+
+🔹 place()
+
+Uses exact coordinates.
+
+```python id="place_example"
+widget.place(
+    x=100,
+    y=50
+)
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🎨 Change Widget Appearance
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="style_example"
+label = tk.Label(
+    window,
+    text="Python",
+    bg="yellow",
+    fg="blue",
+    font=("Arial", 16)
+)
+```
+
+---
+
+📋 Text Widget
+
+For multiline text input.
+
+---
+
+💻 Example
+
+```python id="text_widget"
+import tkinter as tk
+
+window = tk.Tk()
+
+text = tk.Text(
+    window,
+    height=5,
+    width=30
+)
+
+text.pack()
+
+window.mainloop()
+```
+
+---
+
+☑️ Checkbutton
+
+Used for options with true/false values.
+
+---
+
+💻 Example
+
+```python id="checkbox_example"
+import tkinter as tk
+
+window = tk.Tk()
+
+agree = tk.IntVar()
+
+checkbox = tk.Checkbutton(
+    window,
+    text="Accept Terms",
+    variable=agree
+)
+
+checkbox.pack()
+
+window.mainloop()
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔘 Radio Buttons
+
+Allow selecting one option.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="radio_example"
+import tkinter as tk
+
+window = tk.Tk()
+
+choice = tk.StringVar()
+
+tk.Radiobutton(
+    window,
+    text="Python",
+    variable=choice,
+    value="Python"
+).pack()
+
+tk.Radiobutton(
+    window,
+    text="Java",
+    variable=choice,
+    value="Java"
+).pack()
+
+window.mainloop()
+```
+
+---
+
+📜 Message Box
+
+Shows pop-up messages.
+
+---
+
+💻 Example
+
+```python id="messagebox_example"
+import tkinter as tk
+from tkinter import messagebox
+
+def show_message():
+
+    messagebox.showinfo(
+        "Info",
+        "Welcome!"
+    )
+
+window = tk.Tk()
+
+button = tk.Button(
+    window,
+    text="Show",
+    command=show_message
+)
+
+button.pack()
+
+window.mainloop()
+```
+
+---
+
+📂 File Dialog
+
+Open file selection window.
+
+---
+
+💻 Example
+
+```python id="filedialog_example"
+from tkinter import filedialog
+
+filename = filedialog.askopenfilename()
+
+print(filename)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🏗️ Mini Project: Simple Calculator
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="calculator_project"
+import tkinter as tk
+
+def calculate():
+
+    num1 = int(
+        entry1.get()
+    )
+
+    num2 = int(
+        entry2.get()
+    )
+
+    result.config(
+        text=str(num1 + num2)
+    )
+
+window = tk.Tk()
+
+entry1 = tk.Entry(window)
+entry1.pack()
+
+entry2 = tk.Entry(window)
+entry2.pack()
+
+button = tk.Button(
+    window,
+    text="Add",
+    command=calculate
+)
+button.pack()
+
+result = tk.Label(
+    window,
+    text=""
+)
+result.pack()
+
+window.mainloop()
+```
+
+---
+
+🎯 Popular Tkinter Widgets
+
+| Widget | Purpose |
+|----------|----------|
+| Label | Display text |
+| Button | Perform action |
+| Entry | Single-line input |
+| Text | Multi-line input |
+| Checkbutton | Checkbox |
+| Radiobutton | Option selection |
+| Frame | Group widgets |
+| Menu | Application menu |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Real-World Applications
+
+✔ Calculator Apps
+✔ Student Management Systems
+✔ Inventory Software
+✔ Text Editors
+✔ Attendance Systems
+✔ Desktop Automation Tools
+
+---
+
+📊 Tkinter Event Flow
+
+```text id="event_flow"
+User Action
+      ↓
+ Widget Event
+      ↓
+ Event Handler Function
+      ↓
+ Application Response
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Separate GUI and business logic
+✔ Use meaningful widget names
+✔ Validate user input
+✔ Use functions for event handling
+✔ Organize widgets with frames
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting `mainloop()`
+❌ Mixing layout managers
+❌ Not validating inputs
+❌ Hardcoding widget positions
+❌ Large functions handling everything
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Tkinter is Python's built-in GUI library used to create desktop applications. It provides widgets such as labels, buttons, text boxes, and menus, allowing developers to build interactive graphical interfaces.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ Tkinter is Python's standard GUI library
+✔ `Tk()` creates the main window
+✔ Widgets build user interfaces
+✔ Buttons trigger events
+✔ Layout managers arrange widgets
+✔ Message boxes and dialogs improve usability
+✔ Suitable for beginner desktop applications
+
