@@ -1,0 +1,558 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Week 3 – Day 7 Working with CSV (`csv`) and Excel Files (`openpyxl`) 🐍📊📁
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🧠 Introduction
+
+Many real-world applications store data in CSV and Excel files.
+
+Python provides libraries to easily:
+
+✔ Read data
+✔ Write data
+✔ Update records
+✔ Process spreadsheets
+
+These skills are widely used in:
+
+* Data Analysis
+* Automation
+* Reporting
+* Machine Learning
+* Business Applications
+
+---
+
+🎯 Learning Objectives
+
+By the end of this lesson, you will understand:
+
+✔ CSV files
+✔ Reading CSV
+✔ Writing CSV
+✔ Excel files
+✔ Reading Excel using `openpyxl`
+✔ Writing Excel using `openpyxl`
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📄 1. CSV Files
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is a CSV File?
+
+```text id="csv_def"
+CSV (Comma-Separated Values) is a text file that stores tabular data where each value is separated by a comma.
+```
+
+---
+
+📌 Example CSV
+
+```csv id="csv_example"
+Name,Age,Course
+Saakshi,22,Python
+Alex,21,Java
+Emma,23,AI
+```
+
+---
+
+📥 Import csv Module
+
+```python id="import_csv"
+import csv
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📖 Reading CSV File
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="read_csv"
+import csv
+
+with open(
+    "students.csv",
+    "r",
+    newline=""
+) as file:
+
+    reader = csv.reader(file)
+
+    for row in reader:
+        print(row)
+```
+
+---
+
+▶️ Output
+
+```text id="read_csv_output"
+['Name', 'Age', 'Course']
+['Saakshi', '22', 'Python']
+['Alex', '21', 'Java']
+```
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📖 Reading CSV as Dictionary
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="dict_reader"
+import csv
+
+with open(
+    "students.csv",
+    "r"
+) as file:
+
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        print(row["Name"])
+```
+
+---
+
+▶️ Output
+
+```text id="dict_reader_output"
+Saakshi
+Alex
+Emma
+```
+
+---
+
+✍️ Writing CSV File
+
+---
+
+💻 Example
+
+```python id="write_csv"
+import csv
+
+with open(
+    "students.csv",
+    "w",
+    newline=""
+) as file:
+
+    writer = csv.writer(file)
+
+    writer.writerow(
+        ["Name", "Age", "Course"]
+    )
+
+    writer.writerow(
+        ["John", 20, "Python"]
+    )
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+➕ Writing Multiple Rows
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="writerows"
+import csv
+
+data = [
+
+    ["Alex", 21, "Java"],
+
+    ["Emma", 22, "AI"],
+
+    ["Sam", 20, "ML"]
+
+]
+
+with open(
+    "students.csv",
+    "a",
+    newline=""
+) as file:
+
+    writer = csv.writer(file)
+
+    writer.writerows(data)
+```
+
+---
+
+📌 CSV Module Functions
+
+| Function | Purpose |
+|----------|----------|
+| `reader()` | Read CSV |
+| `writer()` | Write CSV |
+| `DictReader()` | Read as dictionary |
+| `writerow()` | Write one row |
+| `writerows()` | Write multiple rows |
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 2. Excel Files
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔹 What is an Excel File?
+
+```text id="excel_def"
+Excel files (.xlsx) store spreadsheet data in rows and columns with support for multiple worksheets.
+```
+
+---
+
+📥 Install openpyxl
+
+```bash id="install_openpyxl"
+pip install openpyxl
+```
+
+---
+
+📦 Import openpyxl
+
+```python id="import_openpyxl"
+from openpyxl import Workbook
+from openpyxl import load_workbook
+```
+
+---
+
+📄 Create Excel Workbook
+
+---
+
+💻 Example
+
+```python id="create_workbook"
+from openpyxl import Workbook
+
+workbook = Workbook()
+
+workbook.save(
+    "students.xlsx"
+)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✍️ Write Data to Excel
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="write_excel"
+from openpyxl import Workbook
+
+workbook = Workbook()
+
+sheet = workbook.active
+
+sheet["A1"] = "Name"
+sheet["B1"] = "Age"
+
+sheet["A2"] = "Saakshi"
+sheet["B2"] = 22
+
+workbook.save(
+    "students.xlsx"
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📖 Read Excel File
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="read_excel"
+from openpyxl import load_workbook
+
+workbook = load_workbook(
+    "students.xlsx"
+)
+
+sheet = workbook.active
+
+print(
+    sheet["A2"].value
+)
+
+print(
+    sheet["B2"].value
+)
+```
+
+---
+
+▶️ Output
+
+```text id="excel_output"
+Saakshi
+22
+```
+
+---
+
+🔄 Iterate Through Rows
+
+---
+
+💻 Example
+
+```python id="iterate_rows"
+from openpyxl import load_workbook
+
+workbook = load_workbook(
+    "students.xlsx"
+)
+
+sheet = workbook.active
+
+for row in sheet.iter_rows(
+    values_only=True
+):
+    print(row)
+```
+
+---
+
+▶️ Output
+
+```text id="iterate_output"
+('Name', 'Age')
+('Saakshi', 22)
+```
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+➕ Append New Row
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="append_row"
+from openpyxl import load_workbook
+
+workbook = load_workbook(
+    "students.xlsx"
+)
+
+sheet = workbook.active
+
+sheet.append(
+    ["Alex", 21]
+)
+
+workbook.save(
+    "students.xlsx"
+)
+```
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📏 Get Maximum Rows & Columns
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="max_rows"
+print(sheet.max_row)
+
+print(sheet.max_column)
+```
+
+---
+
+▶️ Output
+
+```text id="max_output"
+3
+2
+```
+
+---
+
+📄 Create Multiple Sheets
+
+---
+
+💻 Example
+
+```python id="multiple_sheets"
+from openpyxl import Workbook
+
+workbook = Workbook()
+
+workbook.create_sheet(
+    "Employees"
+)
+
+workbook.create_sheet(
+    "Sales"
+)
+
+workbook.save(
+    "company.xlsx"
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+✏️ Update Cell Value
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+💻 Example
+
+```python id="update_cell"
+sheet["B2"] = 23
+
+workbook.save(
+    "students.xlsx"
+)
+```
+
+---
+
+❌ Delete Row
+
+---
+
+💻 Example
+
+```python id="delete_row"
+sheet.delete_rows(2)
+
+workbook.save(
+    "students.xlsx"
+)
+```
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📊 CSV vs Excel
+
+| Feature | CSV | Excel |
+|----------|----------|----------|
+| File Type | `.csv` | `.xlsx` |
+| Multiple Sheets | ❌ | ✔ |
+| Formatting | ❌ | ✔ |
+| Charts | ❌ | ✔ |
+| Speed | Faster | Slightly Slower |
+| Storage | Plain Text | Binary/XML |
+
+---
+
+🎯 Real-World Applications
+
+✔ Student Management
+✔ Sales Reports
+✔ Inventory Systems
+✔ Attendance Records
+✔ Data Cleaning
+✔ Machine Learning Datasets
+✔ Financial Reporting
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🚀 Mini Project Student Report Generator
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Features
+
+✔ Read Student Data from CSV
+✔ Generate Excel Report
+✔ Add New Students
+✔ Update Marks
+✔ Export Results
+
+---
+
+💻 Mini Example
+
+```python id="mini_project"
+from openpyxl import Workbook
+
+workbook = Workbook()
+
+sheet = workbook.active
+
+sheet.append(
+    ["Name", "Marks"]
+)
+
+sheet.append(
+    ["Saakshi", 95]
+)
+
+sheet.append(
+    ["Alex", 88]
+)
+
+workbook.save(
+    "report.xlsx"
+)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+🔧 Best Practices
+
+✔ Use `with open()` for CSV files
+✔ Close Excel workbooks properly
+✔ Validate data before writing
+✔ Handle file exceptions
+✔ Keep backups of important files
+
+---
+
+⚠️ Common Mistakes
+
+❌ Forgetting `newline=""` when writing CSV
+❌ Not saving workbook after changes
+❌ Accessing invalid cell references
+❌ Reading large files into memory unnecessarily
+❌ Ignoring missing file errors
+
+---
+
+🧠 Interview Answer (Simple)
+
+> Python uses the built-in `csv` module to read and write CSV files, while the `openpyxl` library is used to create, read, update, and manage Excel (`.xlsx`) files. These libraries are widely used for automation, reporting, and data processing.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+📚 Key Takeaways
+
+✔ CSV stores tabular data as plain text
+✔ `csv.reader()` reads CSV files
+✔ `csv.writer()` writes CSV files
+✔ `openpyxl` manages Excel files
+✔ Workbooks contain worksheets
+✔ `append()` adds rows easily
+✔ CSV is faster, while Excel supports advanced features
+
